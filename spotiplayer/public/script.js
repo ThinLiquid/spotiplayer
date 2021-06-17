@@ -54,5 +54,5 @@ if (navigator.userAgent.includes('Chrome') == false) {
 })();
 
 if(getParameterByName('error') == "true") {
-    alert('There was an error. Try again later.\n' + getParameterByName('status'))
+    setTimeout(function(){alertify.alert('There was an error. Try again later.<br><code>' + getParameterByName('status') + "</code>")}, 300)
 }
