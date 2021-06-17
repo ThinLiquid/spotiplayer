@@ -1,8 +1,7 @@
 fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
-    .then(function(response) {
-       console.log(response.headers); // returns a Headers{} object
-    }).catch(function(error) {
-        window.location.href = `/?error=true&status=${error}&wait=`
+    .then(response => response.json())
+    .catch(function(error) {
+        window.location.href = `/?error=true&status=${error}`
     });
 setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
