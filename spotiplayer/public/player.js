@@ -35,8 +35,8 @@ setInterval(function(){
             $('.song-artists').append(data.item.artists[data.item.artists.length - 1].name)
           }
 
-          d3.select(".determinate.green").style('width', `${data.progress_ms / $(".progress").width() * 4}px`);
-          document.querySelector('.progress').setAttribute('style', `width:;`)
+          d3.select(".determinate.green").style('width', `${data.progress_ms}px`);
+          document.querySelector('.progress').setAttribute('style', `width:${data.progress_ms / 5000}%;`)
           $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
 
           if(data.is_playing != true) {
@@ -105,3 +105,19 @@ $('.album').tilt({
 };
 
 //https://three-cloudy-allium.glitch.me/player?access_token=BQD99LkOAAwFjYGwzcROWtleS-RN54iZHU-a1gwibdvs2a5gRPYCFUS-wewRgrr1OLUW7k4rpN6efxcgw05OOZamsucLac4Ylat4gqT8QQICqB3WaBnknXsYVCXmkNXqA7B4ncn3zytaFH_4N40PygJ32GMInoUmEV-g8wQHyM5YdmxVogFNgTBXhqMemT2m6nj-LQk7iT0-1i4joHQPpRt5I6kMK2k6GZzXaPgAa3SuXitVFs712eb1n9R0DxEjVxWbpqsrQTQINJoAtT552KmM4ZHflcwxwOytm6Ua
+
+function lcm(a,b) {
+    var max = Math.max(a,b),
+        min = Math.min(a,b);
+    if(Math.abs(max + min) <= Math.abs(max)) { 
+        return 0;
+    }
+    var abs_min = (Math.abs(a) < Math.abs(b)) ? a : b;
+    var ret = abs_min;
+    while(1) {
+        ret += abs_min; 
+        if(!(ret % a || ret % b)) {
+            return ret;
+        }
+    }
+}
