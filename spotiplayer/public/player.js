@@ -50,12 +50,6 @@ setInterval(function(){
     });
 }, 100);
 
-$('.album').tilt({
-  glare: true,
-  maxGlare: .5,
-  minGlare:.5
-})
-
 function play() {
   fetch('https://api.spotify.com/v1/me/player/play', {method: 'put', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
 }
@@ -63,10 +57,6 @@ function play() {
 function pause() {
   fetch('https://api.spotify.com/v1/me/player/pause', {method: 'put', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
 }
-
-document.getElementById('obtain-new-token').addEventListener('click', function() {
-  window.location.href="/"
-}, false);
 
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&');
@@ -82,7 +72,13 @@ function millisToMinutesAndSeconds(millis) {
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
-window.onSpotifyWebPlaybackSDKReady = () => {
+$('.album').tilt({
+  glare: true,
+  maxGlare: .5,
+  minGlare:.5
+})
+
+  window.onSpotifyWebPlaybackSDKReady = () => {
   const token = getParameterByName('access_token');
   const player = new Spotify.Player({
     name: 'SpotiPlayer',

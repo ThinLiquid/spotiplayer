@@ -3,8 +3,11 @@ var request = require('request');
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
+var chalk = require('chalk')
 
 var config = require('./config.json')
+
+console.log('[INFO] ' + chalk.green('Loaded in config.json'));
 
 var client_id = config.client_id;
 var client_secret = config.client_secret;
@@ -38,7 +41,7 @@ app.get('/login', function(req, res) {
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
-  var scope = 'user-read-currently-playing user-read-playback-position user-read-playback-state user-modify-playback-state streaming user-read-email user-read-private';
+  var scope = 'user-read-currently-playing user-read-playback-position user-read-playback-state user-modify-playback-state streaming user-read-email user-read-private user-read-recently-played';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -106,28 +109,5 @@ app.get('/player', function(req, res) {
   res.sendFile(__dirname + '/public/player.html')
 })
 
-app.get('/refresh_token', function(req, res) {
-
-  var refresh_token = req.query.refresh_token;
-  var authOptions = {
-    url: 'https://accounts.spotify.com/api/token',
-    headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
-    form: {
-      grant_type: 'refresh_token',
-      refresh_token: refresh_token
-    },
-    json: true
-  };
-
-  request.post(authOptions, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      var access_token = body.access_token;
-      res.send({
-        'access_token': access_token
-      });
-    }
-  });
-});
-
-console.log('[INFO] Listening on ' + config.port);
+console.log('[INFO] ' + chalk.green('Listening on ' + config.port));
 app.listen(config.port);
