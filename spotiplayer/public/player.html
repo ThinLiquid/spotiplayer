@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta property="og:title" content="SpotiPlayer" />
+    <!-- <meta property="og:url" content="https://" /> -->
+
+    <title>SpotiPlayer | A Spotify Player</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/style.css">
+    <script src="/player.js"></script>
+  </head>
+  <body class="green lighten-2" ng-app="mainModule" ng-controller="mainController">
+    <span style="position: relative;">
+      <div style="padding-left:15%;" id="slide">
+        <div id="login-page" class="row">
+          <div class="col s11 z-depth-6 card-panel container" style="padding:30px;">
+            <center>
+              <span id="album-metadata">
+                <span id="album-img">
+                  <img class="album" style="width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                </span>
+                <h5 class="song-name"></h5>
+                By <span class="song-artists"></span>
+              </span>
+
+              <h3><a style="font-size:1em;color:black;" class="material-icons icons"></a></h3>
+
+              <span class="progress green lighten-3">
+                <span class="progresser" style="color:black;display:block;">0:00</span><span class="determinate green"></span>
+              </span>
+
+              <button class="btn green waves-effect waves-light" id="obtain-new-token">REFRESH</button>
+            </center>
+          </div>
+        </div>
+      </div>
+    </span>
+  </body>
+</html>

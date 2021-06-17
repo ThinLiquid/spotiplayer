@@ -1,0 +1,15 @@
+{
+  "name": "spotiplayer",
+  "author": "JuiciiDev",
+  "description": "A simple music player for Spotify!",
+  "version": "1.0.0",
+  "license": "Apache",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "cookie-parser": "1.3.2",
+    "cors": "^2.8.4",
+    "express": "~4.16.0",
+    "querystring": "~0.2.0",
+    "request": "~2.83.0"
+  }
+}
