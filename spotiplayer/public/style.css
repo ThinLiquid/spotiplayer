@@ -1,64 +1,106 @@
 html,
 body {
-height: 100%;
-font-family:Roboto;
+  height: 100%;
+  font-family: Roboto;
 }
 
 html {
-display: table;
-margin: auto;
+  display: table;
+  margin: auto;
 }
 
 body {
-display: table-cell;
-vertical-align: middle;
-background: #4ECDC4;
+  display: table-cell;
+  vertical-align: middle;
+  background: #4ECDC4;
 }
 
 #login-page {
-width: 1000px;
+  width: 1000px;
 }
 
 .input-field .prefix.active {
-color:#ff9800!important;
+  color: #ff9800 !important;
 }
 
-* input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
-color: #ff9800!important;
+* input:not([type]):focus:not([readonly]) + label,
+input[type="text"]:focus:not([readonly]) + label,
+input[type="password"]:focus:not([readonly]) + label,
+input[type="email"]:focus:not([readonly]) + label,
+input[type="url"]:focus:not([readonly]) + label,
+input[type="time"]:focus:not([readonly]) + label,
+input[type="date"]:focus:not([readonly]) + label,
+input[type="datetime"]:focus:not([readonly]) + label,
+input[type="datetime-local"]:focus:not([readonly]) + label,
+input[type="tel"]:focus:not([readonly]) + label,
+input[type="number"]:focus:not([readonly]) + label,
+input[type="search"]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #ff9800 !important;
 }
 
-* input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-border-bottom: 1px solid #ff9800!important;
-box-shadow: 0 1px 0 0 #ff9800!important;
+* input:not([type]):focus:not([readonly]),
+input[type="text"]:focus:not([readonly]),
+input[type="password"]:focus:not([readonly]),
+input[type="email"]:focus:not([readonly]),
+input[type="url"]:focus:not([readonly]),
+input[type="time"]:focus:not([readonly]),
+input[type="date"]:focus:not([readonly]),
+input[type="datetime"]:focus:not([readonly]),
+input[type="datetime-local"]:focus:not([readonly]),
+input[type="tel"]:focus:not([readonly]),
+input[type="number"]:focus:not([readonly]),
+input[type="search"]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ff9800 !important;
+  box-shadow: 0 1px 0 0 #ff9800 !important;
 }
 #slide {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
--webkit-animation: slide 0.5s forwards;
--webkit-animation-delay: 2s;
-animation: slide 0.5s forwards;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
 }
 
-* a:hover{
-  color:green!important;
+* a:hover {
+  color: green !important;
 }
 
 @-webkit-keyframes slide {
-100% { left: 0; }
+  100% {
+    left: 0;
+  }
 }
 
 @keyframes slide {
-100% { left: 0; }
+  100% {
+    left: 0;
+  }
 }
 
 .album {
-border-radius:10px;
+  border-radius: 10px;
 }
 
-.song-name{
-overflow:ellipse;
-width:100%;
+.song-name {
+  overflow: ellipse;
+  width: 100%;
 }
 
+code {
+  background:black;
+  padding:2px;
+  border-radius:2px;
+  color:white;
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+  color:green!important;
+}
+
+.ajs-dialog {
+  width:80%;
+}

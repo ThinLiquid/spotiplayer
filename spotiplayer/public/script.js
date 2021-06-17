@@ -54,5 +54,10 @@ if (navigator.userAgent.includes('Chrome') == false) {
 })();
 
 if(getParameterByName('error') == "true") {
-    setTimeout(function(){alertify.alert('There was an error. Try again later.<br><code>' + getParameterByName('status') + "</code>")}, 300)
+    setTimeout(function(){
+      alertify.alert('There was an error. Try again later.<br><code>' + getParameterByName('status') + "</code>")
+      document.querySelector('.ajs-header').innerText = "SpotiPlayer Alert";
+      document.querySelector('.ajs-ok').setAttribute('class', document.querySelector('.ajs-ok').getAttribute('class') + ' waves-effect waves-dark')
+    }, 600)
 }
+
