@@ -1,11 +1,10 @@
 fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
-    .then(data => {
-            if (data.error.status != undefined) {
-              window.location.href="/?code=" + data.error.status + "&error" + data.error.message
-            }
-})
-setTimeout(function(){
+    .then(function() {
+        console.log("ok");
+    }).catch(function(error) {
+        window.location.href = `/?error=true&status=${error}`
+    });
 setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
@@ -55,7 +54,6 @@ setInterval(function(){
         }
     });
 }, 100);
-  },3000)
 
 function play() {
   fetch('https://api.spotify.com/v1/me/player/play', {method: 'put', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})

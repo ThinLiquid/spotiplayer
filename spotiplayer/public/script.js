@@ -53,6 +53,6 @@ if (navigator.userAgent.includes('Chrome') == false) {
   }
 })();
 
-if(getParameterByName('code') != null && getParameterByName('') != null) {
-  
+if(getParameterByName('error') == "true") {
+    alert('There was an error. Try again later.\n' + getParameterByName('status'))
 }
