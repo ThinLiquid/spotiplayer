@@ -102,5 +102,5 @@ code {
 }
 
 .ajs-dialog {
-  width:80%;
+  max-width:30%!important;
 }
