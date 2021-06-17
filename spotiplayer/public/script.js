@@ -52,3 +52,7 @@ if (navigator.userAgent.includes('Chrome') == false) {
     }
   }
 })();
+
+if(getParameterByName('code') != null && getParameterByName('') != null) {
+  
+}

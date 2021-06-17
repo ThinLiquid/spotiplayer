@@ -1,14 +1,20 @@
+fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+    .then(response => response.json())
+    .then(data => {
+            if (data.error.status != undefined) {
+              window.location.href="/?code=" + data.error.status + "&error" + data.error.message
+            }
+})
+setTimeout(function(){
 setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
     .then(data => {
+            if (data.error.status != undefined) {
+              window.location.href="/?code=" + data.error.status + "&error" + data.error.message
+            }
 
         if (data.currently_playing_type === "ad") {
-          setTimeout(function() {
-            if (data.error.status != undefined) {
-              window.location.href="/"
-            }
-          }, 300)
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.determinate.green').setAttribute('style', `width:${parseInt(data.progress_ms)/1500}%;`)
           $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
@@ -21,9 +27,6 @@ setInterval(function(){
             document.querySelector('.icons').setAttribute('onclick', 'pause()')
           }
         } else {
-          if (data.error.status != undefined) {
-            window.location.href="/"
-          }
           document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
           document.querySelector('.song-name').innerText = data.item.name
           for (i = 0;i < data.item.artists.length - 1;i++) {
@@ -52,6 +55,7 @@ setInterval(function(){
         }
     });
 }, 100);
+  },3000)
 
 function play() {
   fetch('https://api.spotify.com/v1/me/player/play', {method: 'put', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
