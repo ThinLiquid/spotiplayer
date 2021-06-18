@@ -27,20 +27,33 @@ setInterval(function(){
           document.querySelector('.song-name').innerText = data.item.name
           
           if (data.item.artists.length == 1) {
-            $('.artists-name').html(`<div class="chip">${data.item.artists[data.item.artists.length - 1].name}</div>`)
+            fetch('https://api.spotify.com/v1/artists/' + data.item.artists[data.item.artists.length - 1].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+              .then(response => response.json())
+              .then(data2 => {
+                $('.artists-name').html(`<div class="chip"><img src="${data2.images[0].url}">${data.item.artists[data.item.artists.length - 1].name}</div>`)
+              })
           } else {
             for (i = 0;i < data.item.artists.length;i++) {
-              $('.album').one('DOMSubtreeModified', function(){
+              fetch('https://api.spotify.com/v1/artists/' + data.item.artists[data.item.artists.length - 1].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+                .then(response => response.json())
+                .then(data2 => {
+                $('.album').one('DOMSubtreeModified', function(){
+                document.querySelectorAll('span')[3].innerHTML = "";
                 document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
               });
-              $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>`)
-              if (i == data.item.artists.length - 1) {
-                try {
-                  document.querySelector('.artists-name').setAttribute('class', '')
-                } catch (e) {
+              $('.song-name').one('DOMSubtreeModified', function(){
+                document.querySelectorAll('span')[3].innerHTML = "";
+                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+              });
+                  $('.artists-name').append(`<div class="chip"><img src="${data2.images[i].url}">${data.item.artists[i].name}</div>`)
+                  if (i == data.item.artists.length - 1) {
+                    try {
+                      document.querySelector('.artists-name').setAttribute('class', '')
+                    } catch (e) {
                   
-                }
-              }
+                    }
+                  }
+                })
             }
           } 
 
