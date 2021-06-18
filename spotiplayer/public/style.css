@@ -19,8 +19,21 @@ body {
 }
 
 .input-field .prefix.active {
-  color: #ff9800 !important;
+  color: rgba(0,0,0,0) !important;
 }
+
+* inputer input{
+  border-bottom:none!important;
+  background:white!important;
+  border-radius:30px!important;
+  padding-left:20px!important;
+  width:90%!important;
+}
+
+* inputer input::before {
+  content:'no ';
+}
+
 
 * input:not([type]):focus:not([readonly]) + label,
 input[type="text"]:focus:not([readonly]) + label,
@@ -35,7 +48,7 @@ input[type="tel"]:focus:not([readonly]) + label,
 input[type="number"]:focus:not([readonly]) + label,
 input[type="search"]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #ff9800 !important;
+  color: rgba(0,0,0,0) !important;
 }
 
 * input:not([type]):focus:not([readonly]),
@@ -51,8 +64,8 @@ input[type="tel"]:focus:not([readonly]),
 input[type="number"]:focus:not([readonly]),
 input[type="search"]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #ff9800 !important;
-  box-shadow: 0 1px 0 0 #ff9800 !important;
+  border-bottom: 1px solid rgba(0,0,0,0) !important;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,0) !important;
 }
 #slide {
   position: absolute;
