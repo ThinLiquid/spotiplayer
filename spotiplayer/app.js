@@ -5,13 +5,14 @@ var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 var chalk = require('chalk')
 
-var config = require('./config.json')
+require('dotenv').config()
 
-console.log('[INFO] ' + chalk.green('Loaded in config.json'));
+console.log('[INFO] ' + chalk.green('Loaded in config'));
 
-var client_id = config.client_id;
-var client_secret = config.client_secret;
-var redirect_uri = config.redirect_uri;
+var client_id = process.env.client_id;
+var client_secret = process.env.client_secret;
+var redirect_uri = process.env.redirect_uri;
+var port = process.env.port;
 
 /**
  * Generates a random string containing numbers and letters
@@ -109,5 +110,5 @@ app.get('/player', function(req, res) {
   res.sendFile(__dirname + '/public/player.html')
 })
 
-console.log('[INFO] ' + chalk.green('Listening on ' + config.port));
-app.listen(config.port);
+console.log('[INFO] ' + chalk.green('Listening on ' + port));
+app.listen(port);
