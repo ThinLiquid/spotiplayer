@@ -10,10 +10,6 @@ setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
     .then(data => {
-            if (data.error.status != undefined) {
-              window.location.href="/?code=" + data.error.status + "&error" + data.error.message
-            }
-
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.determinate.green').setAttribute('style', `width:${parseInt(data.progress_ms)/1500}%;`)
@@ -29,7 +25,7 @@ setInterval(function(){
         } else {
           document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
           document.querySelector('.song-name').innerText = data.item.name
-          for (i = 0;i < data.item.artists.length - 1;i++) {
+          for (i = 0;i < data.item.artists.length - data.item.artists.length - 1;i++) {
             $('.song-artists').text(data.item.artists[i].name + ', ')
           }
 
@@ -54,7 +50,7 @@ setInterval(function(){
           }
         }
     });
-}, 100);
+}, 1000);
 
 function play() {
   fetch('https://api.spotify.com/v1/me/player/play', {method: 'put', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
