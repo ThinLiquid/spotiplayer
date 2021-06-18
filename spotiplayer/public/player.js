@@ -27,13 +27,12 @@ setInterval(function(){
           document.querySelector('.song-name').innerText = data.item.name
           
           if (data.item.artists.length == 1) {
-            onChangeElement('.song-name', function(cb){
-               alert('changed')
-            })
             $('.artists-name').html(`<div class="chip">${data.item.artists[data.item.artists.length - 1].name}</div>`)
           } else {
             for (i = 0;i < data.item.artists.length;i++) {
-              
+              $('.album').one('DOMSubtreeModified', function(){
+                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+              });
               $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>`)
               if (i == data.item.artists.length - 1) {
                 try {
