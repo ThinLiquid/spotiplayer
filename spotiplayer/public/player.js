@@ -27,34 +27,34 @@ setInterval(function(){
           document.querySelector('.song-name').innerText = data.item.name
           
           if (data.item.artists.length == 1) {
-            fetch('https://api.spotify.com/v1/artists/' + data.item.artists[data.item.artists.length - 1].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+            fetch('https://api.spotify.com/v1/artists?ids=' + data.item.artists[data.item.artists.length - 1].id + ',', { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
               .then(response => response.json())
               .then(data2 => {
                 $('.artists-name').html(`<div class="chip"><img src="${data2.images[0].url}">${data.item.artists[data.item.artists.length - 1].name}</div>`)
               })
           } else {
+            fetch('https://api.spotify.com/v1/artists/' + data.item.artists[data.item.artists.length - 1].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+              .then(response => response.json())
+              .then(data2 => {
             for (i = 0;i < data.item.artists.length;i++) {
-              fetch('https://api.spotify.com/v1/artists/' + data.item.artists[data.item.artists.length - 1].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
-                .then(response => response.json())
-                .then(data2 => {
-                  $('.album').one('DOMSubtreeModified', function(){
-                    document.querySelectorAll('span')[3].innerHTML = "";
-                    document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
-                  });
-                  $('.song-name').one('DOMSubtreeModified', function(){
-                    document.querySelectorAll('span')[3].innerHTML = "";
-                    document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
-                  });
-                  $('.artists-name').append(`<div class="chip"><img src="${data2.images[i - 1].url}">${data.item.artists[i - 1].name}</div>`)
-                  if (i == data.item.artists.length - 1) {
-                    try {
-                      document.querySelector('.artists-name').setAttribute('class', '')
-                    } catch (e) {
+              $('.album').one('DOMSubtreeModified', function(){
+                document.querySelectorAll('span')[3].innerHTML = "";
+                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+              });
+              $('.song-name').one('DOMSubtreeModified', function(){
+                document.querySelectorAll('span')[3].innerHTML = "";
+                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+              });
+              $('.artists-name').append(`<div class="chip"><img src="${data2.images[1].url}">${data.item.artists[i].name}</div>`)
+              if (i == data.item.artists.length - 1) {
+                try {
+                  document.querySelector('.artists-name').setAttribute('class', '')
+                } catch (e) {
                   
-                    }
-                  }
-                })
+                }
+              }
             }
+            })
           } 
 
           document.querySelector('.determinate.green').setAttribute('style', `width:${data.progress_ms / 500}px;`)
