@@ -65,15 +65,6 @@ setInterval(function() {
               );
             });
         } else {
-          function artists() {
-            for (i = 0;i < data.item.artists.length;i++) {
-              return data.item.artists[i]
-              return data.item.artists[i]
-              return data.item.artists[i]
-            }
-          }
-          
-          console.log(artists())
           fetch(
             "https://api.spotify.com/v1/artists?ids=" +
               data.item.artists[data.item.artists.length - 2].id +
@@ -104,7 +95,7 @@ setInterval(function() {
                     .setAttribute("class", "artists-name");
                 });
                 $(".artists-name").append(
-                  `<div class="chip"><img src="${data2.artists[i].images[0].url}">${data.item.artists[i].name}</div>`
+                  `<div class="chip"><!--<img src="${data2.artists[i].images[0].url}">-->${data.item.artists[i].name}</div>`
                 );
                 if (i == data.item.artists.length) {
                   try {
