@@ -85,8 +85,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .song-name {
-  overflow: ellipse;
-  width: 100%;
+  text-overflow: ellipse;
 }
 
 code {

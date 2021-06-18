@@ -38,12 +38,12 @@ setInterval(function(){
             
             for (i = 0;i < data.item.artists.length;i++) {
               $('.album').one('DOMSubtreeModified', function(){
-                document.querySelectorAll('span')[3].innerHTML = "";
-                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+                document.querySelectorAll('span')[4].innerHTML = "";
+                document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
               });
               $('.song-name').one('DOMSubtreeModified', function(){
-                document.querySelectorAll('span')[3].innerHTML = "";
-                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+                document.querySelectorAll('span')[4].innerHTML = "";
+                document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
               });
               $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>`)
               var all = all + ', ' + data.item.artists[i].name
