@@ -116,17 +116,17 @@ $('.album').tilt({
   minGlare:.5
 })
 
-  window.onSpotifyWebPlaybackSDKReady = () => {
+window.onSpotifyWebPlaybackSDKReady = () => {
   const token = getParameterByName('access_token');
   const player = new Spotify.Player({
     name: 'SpotiPlayer',
     getOAuthToken: cb => { cb(token); }
   });
 
-  player.addListener('initialization_error', ({ message }) => { console.error(message); });
-  player.addListener('authentication_error', ({ message }) => { console.error(message); });
-  player.addListener('account_error', ({ message }) => { console.error(message); });
-  player.addListener('playback_error', ({ message }) => { console.error(message); });
+  player.addListener('initialization_error', ({ message }) => { console.error("[ERROR] " + message); });
+  player.addListener('authentication_error', ({ message }) => { console.error("[ERROR] " + message); });
+  player.addListener('account_error', ({ message }) => { console.error("[ERROR] " + message); });
+  player.addListener('playback_error', ({ message }) => { console.error("[ERROR] " + message); });
 
   player.addListener('player_state_changed', state => { console.log(state); });
 

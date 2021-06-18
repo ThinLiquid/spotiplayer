@@ -1,22 +1,9 @@
-let song, buttton, fft, space_between_lines;
-
-function toggleSong() {
-  if(song.isPlaying()) {
-    song.pause();
-  } else {
-    song.play();
-  }
-}
-
-function preload() {
-  song = loadSound('https://cdn.glitch.com/362ef2ab-55b7-48f2-a211-2949d088ad46%2Fmenu.mp3'); 
-}
+let fft, space_between_lines;
 
 function setup() {
   createCanvas(600, 600);
   angleMode(DEGREES); // Change the mode to DEGREES
   colorMode(HSB);
-  song.play();  
   fft = new p5.FFT(0.9, 128);
   space_between_lines = width / 128;
 }
