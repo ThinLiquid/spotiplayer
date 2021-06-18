@@ -28,7 +28,8 @@ body {
   border-top-right-radius:30px!important;
   border-bottom-right-radius:30px!important;
   padding-left:20px!important;
-  width:85%!important;
+  padding-right:20px!important;
+  width:83%!important;
 }
 
 * inputer .material-icons {
@@ -39,20 +40,17 @@ body {
   vertical-align: middle;
 }
 
-* inputer .material-icons:hover {
+* inputer, .container {
   animation-name: example;
-  animation-duration: 2s;
-}
-
-* inputer{
-  animation-name: example;
-  animation-duration: 2s;
-  animation-direction:reverse;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes example {
-  from {box-shadow: 0 0 0px green;}
-  to {box-shadow: 0 0 50px green;}
+  0% {box-shadow: 0 0 0px green;}
+  25% {box-shadow: 0 0 50px green;}
+  50% {box-shadow: 0 0 0px green;}
+  100% {box-shadow: 0 0 50px green;}
 }
 
 * inputer input::before {
