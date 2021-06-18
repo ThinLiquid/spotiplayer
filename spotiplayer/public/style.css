@@ -48,8 +48,8 @@ body {
 
 @keyframes example {
   0% {box-shadow: 0 0 0px green;}
-  25% {box-shadow: 0 0 50px green;}
-  50% {box-shadow: 0 0 0px green;}
+  25% {box-shadow: 0 0 0px green;}
+  50% {box-shadow: 0 0 50px green;}
   100% {box-shadow: 0 0 50px green;}
 }
 

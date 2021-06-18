@@ -45,7 +45,7 @@ setInterval(function(){
                 document.querySelectorAll('span')[4].innerHTML = "";
                 document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
               });
-              $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>`)
+              $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>&nbsp;`)
               var all = all + ', ' + data.item.artists[i].name
               document.title = `Now Playing: ${data.item.name} by ${all.replace('undefined,', '')} | SpotiPlayer`
               if (i == data.item.artists.length - 1) {
