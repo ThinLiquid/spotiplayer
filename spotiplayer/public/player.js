@@ -25,16 +25,13 @@ setInterval(function(){
         } else {
           document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
           document.querySelector('.song-name').innerText = data.item.name
-          for (i = 0;i < data.item.artists.length - data.item.artists.length - 1;i++) {
-            $('.song-artists').text(data.item.artists[i].name + ', ')
+          console.log(data.item.artists)
+          for (i = 0;i < data.item.artists.length;i++) {
+            $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>`)
           }
-
-          if (data.item.artists.length - 1 == 0) {
-            $('.song-artists').text(data.item.artists[data.item.artists.length - 1].name)
-          }
-
-          if (data.item.artists.length - 1 != 0) {
-            $('.song-artists').append(data.item.artists[data.item.artists.length - 1].name)
+          
+          if (data.item.artists.length == 1) {
+          $('.artists-name').text(`<div class="chip">${data.item.artists[data.item.artists.length - 1].name}</div>`)
           }
 
           document.querySelector('.determinate.green').setAttribute('style', `width:${data.progress_ms / 500}px;`)
