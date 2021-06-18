@@ -111,3 +111,7 @@ canvas {
   top:50%;
   left:40%;
 }
+
+a:hover {
+  cursor:pointer;
+}
