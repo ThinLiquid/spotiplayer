@@ -25,14 +25,25 @@ setInterval(function(){
         } else {
           document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
           document.querySelector('.song-name').innerText = data.item.name
-          console.log(data.item.artists)
-          for (i = 0;i < data.item.artists.length;i++) {
-            $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>`)
-          }
           
           if (data.item.artists.length == 1) {
-          $('.artists-name').text(`<div class="chip">${data.item.artists[data.item.artists.length - 1].name}</div>`)
-          }
+            onChangeElement('.song-name', function(cb){
+               alert('changed')
+            })
+            $('.artists-name').html(`<div class="chip">${data.item.artists[data.item.artists.length - 1].name}</div>`)
+          } else {
+            for (i = 0;i < data.item.artists.length;i++) {
+              
+              $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>`)
+              if (i == data.item.artists.length - 1) {
+                try {
+                  document.querySelector('.artists-name').setAttribute('class', '')
+                } catch (e) {
+                  
+                }
+              }
+            }
+          } 
 
           document.querySelector('.determinate.green').setAttribute('style', `width:${data.progress_ms / 500}px;`)
           document.querySelector('.progress').setAttribute('style', `width:${data.item.duration_ms / 500}px;`)
@@ -117,4 +128,18 @@ function lcm(a,b) {
             return ret;
         }
     }
+}
+
+const onChangeElement = (qSelector, cb)=>{
+ const targetNode = document.querySelector(qSelector);
+ if(targetNode){
+    const config = { attributes: true, childList: false, subtree: false };
+    const callback = function(mutationsList, observer) {
+        cb($(qSelector))
+    };
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+ }else {
+    console.error("onChangeElement: Invalid Selector")
+ }
 }
