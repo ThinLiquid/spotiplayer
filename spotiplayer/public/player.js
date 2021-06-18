@@ -1,9 +1,10 @@
 fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
-    .then(function (response) {
+    .then(response => {
       window.wait=response.status
+      return response.json()
     })
     .catch(function(error) {
-        //window.location.href = `/?error=true&status=${error}&code=${window.wait}`
+        window.location.href = `/?error=true&status=${error}&code=${window.wait}`
     });
 setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
@@ -108,8 +109,6 @@ $('.album').tilt({
 
   player.connect();
 };
-
-//https://three-cloudy-allium.glitch.me/player?access_token=BQD99LkOAAwFjYGwzcROWtleS-RN54iZHU-a1gwibdvs2a5gRPYCFUS-wewRgrr1OLUW7k4rpN6efxcgw05OOZamsucLac4Ylat4gqT8QQICqB3WaBnknXsYVCXmkNXqA7B4ncn3zytaFH_4N40PygJ32GMInoUmEV-g8wQHyM5YdmxVogFNgTBXhqMemT2m6nj-LQk7iT0-1i4joHQPpRt5I6kMK2k6GZzXaPgAa3SuXitVFs712eb1n9R0DxEjVxWbpqsrQTQINJoAtT552KmM4ZHflcwxwOytm6Ua
 
 function lcm(a,b) {
     var max = Math.max(a,b),
