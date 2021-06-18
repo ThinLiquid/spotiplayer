@@ -84,6 +84,15 @@ function pause() {
   fetch('https://api.spotify.com/v1/me/player/pause', {method: 'put', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
 }
 
+function next() {
+  fetch('https://api.spotify.com/v1/me/player/next', {method: 'post', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+}
+
+function prev() {
+  fetch('https://api.spotify.com/v1/me/player/previous', {method: 'post', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+}
+
+
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&');
   var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
