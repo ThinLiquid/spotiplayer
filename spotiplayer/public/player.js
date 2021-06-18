@@ -37,15 +37,15 @@ setInterval(function(){
               fetch('https://api.spotify.com/v1/artists/' + data.item.artists[data.item.artists.length - 1].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
                 .then(response => response.json())
                 .then(data2 => {
-                $('.album').one('DOMSubtreeModified', function(){
-                document.querySelectorAll('span')[3].innerHTML = "";
-                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
-              });
-              $('.song-name').one('DOMSubtreeModified', function(){
-                document.querySelectorAll('span')[3].innerHTML = "";
-                document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
-              });
-                  $('.artists-name').append(`<div class="chip"><img src="${data2.images[i].url}">${data.item.artists[i].name}</div>`)
+                  $('.album').one('DOMSubtreeModified', function(){
+                    document.querySelectorAll('span')[3].innerHTML = "";
+                    document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+                  });
+                  $('.song-name').one('DOMSubtreeModified', function(){
+                    document.querySelectorAll('span')[3].innerHTML = "";
+                    document.querySelectorAll('span')[3].setAttribute('class', 'artists-name')
+                  });
+                  $('.artists-name').append(`<div class="chip"><img src="${data2.images[i - 1].url}">${data.item.artists[i - 1].name}</div>`)
                   if (i == data.item.artists.length - 1) {
                     try {
                       document.querySelector('.artists-name').setAttribute('class', '')
