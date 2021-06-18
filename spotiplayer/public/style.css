@@ -39,6 +39,22 @@ body {
   vertical-align: middle;
 }
 
+* inputer .material-icons:hover {
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+* inputer{
+  animation-name: example;
+  animation-duration: 2s;
+  animation-direction:reverse;
+}
+
+@keyframes example {
+  from {box-shadow: 0 0 0px green;}
+  to {box-shadow: 0 0 50px green;}
+}
+
 * inputer input::before {
   content:'no ';
   padding-left:90px!important;
