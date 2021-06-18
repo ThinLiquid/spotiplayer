@@ -57,10 +57,11 @@ setInterval(function(){
               }
             }
           } 
-
-          document.querySelector('.determinate.green').setAttribute('style', `width:${data.progress_ms / 500}px;`)
-          document.querySelector('.progress').setAttribute('style', `width:${data.item.duration_ms / 500}px;`)
+          
+          document.querySelector('.determinate.green').setAttribute('style', `width:${data.progress_ms / 1000}px;`)
+          document.querySelector('.progress').setAttribute('style', `width:${data.progress_ms / 500}px;`)
           $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
+          $('.progresser-alt').text(millisToMinutesAndSeconds(data.item.duration_ms))
 
           if(data.is_playing != true) {
             $('.icons').text('play_arrow')
@@ -70,6 +71,9 @@ setInterval(function(){
             document.querySelector('.icons').setAttribute('onclick', 'pause()')
           }
         }
+      } catch (e) {
+      
+    }
     });
 }, 1000);
 
