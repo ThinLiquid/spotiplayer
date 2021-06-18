@@ -58,7 +58,7 @@ setInterval(function(){
             }
           } 
           
-          document.querySelector('.determinate.green').setAttribute('style', `width:${millis2(data.progress_ms)}px;`)
+          document.querySelector('.determinate.green').setAttribute('style', `width:${millis3(data.progress_ms) * millis3(data.item.duration_ms) * 11.084}%;`)
           $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
           $('.progresser-alt').text(millisToMinutesAndSeconds(data.item.duration_ms))
 
@@ -107,7 +107,7 @@ function millis2(millis) {
 function millis3(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return minutes;
+  return minutes + "." + (seconds < 10 ? '0' : '') + seconds;
 }
 
 $('.album').tilt({
