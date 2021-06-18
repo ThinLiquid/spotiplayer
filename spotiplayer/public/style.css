@@ -25,13 +25,23 @@ body {
 * inputer input{
   border-bottom:none!important;
   background:white!important;
-  border-radius:30px!important;
+  border-top-right-radius:30px!important;
+  border-bottom-right-radius:30px!important;
   padding-left:20px!important;
-  width:90%!important;
+  width:85%!important;
+}
+
+* inputer .material-icons {
+  border-top-left-radius:30px!important;
+  border-bottom-left-radius:30px!important;
+  height:3rem!important;
+  width:5%;
+  vertical-align: middle;
 }
 
 * inputer input::before {
   content:'no ';
+  padding-left:90px!important;
 }
 
 
