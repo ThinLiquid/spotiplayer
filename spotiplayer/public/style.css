@@ -104,3 +104,12 @@ code {
 .ajs-dialog {
   max-width:800px!important;
 }
+
+canvas {
+  z-index:0;
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:50%;
+  left:40%;
+}
