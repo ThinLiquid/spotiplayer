@@ -58,7 +58,7 @@ setInterval(function(){
             }
           } 
           
-          document.querySelector('.determinate.green').setAttribute('style', `width:${millis3(data.progress_ms) * millis3(data.item.duration_ms) * 11.084}%;`)
+          document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
           $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
           $('.progresser-alt').text(millisToMinutesAndSeconds(data.item.duration_ms))
 
