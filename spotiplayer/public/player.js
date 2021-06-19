@@ -8,15 +8,20 @@ fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ metho
     });
 
 function search() {
+  $('results').html("")
   var searchfor = document.querySelector('input').value
   //try {
     fetch('https://api.spotify.com/v1/search?q=' + searchfor + '&type=track&market=GB&limit=10',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         for(i=0;i<data.tracks.items.length - 1;i++) {
           var all = data.tracks.items[i].name
-          $('results').append(`<div class="card"><div class="card-content"><a><h1>${all}</a></div></div><br>`)
+          for(a=0;a<data.tracks.items[i].artists.length;a++) {
+            if (data.tracks.items[i].artists[])
+            window.all = window.all + ', ' + data.tracks.items[i].artists[a].name
+          }
+          $('results').append(`<div class="card"><a><div class="card-content"><h5>${all}</h5><br>by: ${window.all}</div></a></div><br>`)
+          window.all ="";
         }
       })
  // } catch (e) {
