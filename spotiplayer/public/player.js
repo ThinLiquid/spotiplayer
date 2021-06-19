@@ -17,6 +17,7 @@ function search() {
         for(i=0;i<data.tracks.items.length - 1;i++) {
           var all = data.tracks.items[i].name
           var all2 = data.tracks.items[i].id
+          var all3 = data.tracks.items[i].album.images[0].url
           for(a=0;a<data.tracks.items[i].artists.length;a++) {
             if (data.tracks.items[i].artists.length == 1) {
               window.all = data.tracks.items[i].artists[a].name
@@ -27,7 +28,8 @@ function search() {
               }
             }
           }
-          $('results').append(`<hehe><div class="card"><a style="color:white;" onclick="plays('${all2}')"><div class="card-content"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div></a></div></hehe>`)
+          $('results').append(`<hehe><div class="card"><a style="color:white;" onclick="plays('${all2}')"><div class="card-content row"><div class="col s9"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div><div class="col s3"><img src="${all3}" width="100%"></div></a></div></hehe>`)
+          $('.card').tilt()
           window.all ="";
         }
       })
