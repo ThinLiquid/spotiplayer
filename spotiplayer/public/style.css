@@ -186,7 +186,12 @@ a:hover {
 
 #overlay .card {
   width:50%;
-  horizontal-align:middle;
+  margin: auto;
+  padding: 10px;
+}
+
+#overlay .card:hover {
+  border: 3px solid palegreen;
 }
 
 .card{
@@ -194,5 +199,9 @@ a:hover {
 }
 
 * .card a:hover {
-  color:palegreen!important;
+  color:white!important;
+}
+
+hehe {
+  padding:10px;
 }
