@@ -187,3 +187,7 @@ a:hover {
 #overlay .card {
   width:25%;
 }
+
+.card{
+  background-color: rgba(0,0,0,23%)!important;
+}

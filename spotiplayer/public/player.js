@@ -27,7 +27,7 @@ function search() {
               }
             }
           }
-          $('results').append(`<hehe><div class="card"><a style="color:black;" onclick="plays(${all2})"><div class="card-content"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div></a></div></hehe>`)
+          $('results').append(`<hehe><div class="card"><a style="color:black;" onclick="plays('${all2}')"><div class="card-content"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div></a></div></hehe>`)
           window.all ="";
         }
       })
@@ -212,7 +212,17 @@ const onChangeElement = (qSelector, cb)=>{
 }
 
 function plays(id) {
-  alertify.alert('This feature is comming soon...\nSong ID: ' + id)
+  alertify.alert('This feature is comming soon...<br>Song ID: ' + id)
   document.querySelector('.ajs-header').innerText = "SpotiPlayer Alert";
   document.querySelector('.ajs-ok').setAttribute('class', document.querySelector('.ajs-ok').getAttribute('class') + ' waves-effect waves-dark')
 }
+
+function enter() {
+    search()
+}
+
+document.addEventListener('keyup', function(e) {
+  if (e.code == "Escape") {
+    document.querySelector('#overlay').style.display = "none";
+  }
+});
