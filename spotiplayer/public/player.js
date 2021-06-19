@@ -4,8 +4,26 @@ fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ metho
       return response.json()
     })
     .catch(function(error) {
-        //window.location.href = `/?error=true&status=${error}&code=${window.wait}`
+        window.location.href = `/?error=true&status=${error}&code=${window.wait}`
     });
+
+function search() {
+  var searchfor = document.querySelector('input').value
+  //try {
+    fetch('https://api.spotify.com/v1/search?q=' + searchfor + '&type=track&market=GB&limit=10',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        for(i=0;i<data.tracks.items.length - 1;i++) {
+          var all = data.tracks.items[i].name
+          $('results').append(`<div class="card"><div class="card-content"><a><h1>${all}</a></div></div><br>`)
+        }
+      })
+ // } catch (e) {
+    
+ // }
+}
+
 setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
@@ -179,20 +197,4 @@ const onChangeElement = (qSelector, cb)=>{
  }else {
     console.error("onChangeElement: Invalid Selector")
  }
-}
-
-function search() {
-  var searchfor = document.querySelector('input').value
-  //try {
-    fetch('https://api.spotify.com/v1/search?=' + searchfor + '&type=track&market=GB&limit=10',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
-      .then(response => response.json())
-      .then(data => {
-        for(i=0;i<data.tracks.items.length - 1;i++) {
-          var all = all.replace('undefined', '') + ' ' +data.tracks.items[i - 1].name
-          $('results').text(all)
-        }
-      })
- // } catch (e) {
-    
- // }
 }
