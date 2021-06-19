@@ -191,7 +191,14 @@ a:hover {
 }
 
 #overlay .card:hover {
-  border: 3px solid palegreen;
+  animation-name: border;
+  animation-duration:0.5s;
+  animation-iteration-count:infinite;
+}
+
+@keyframes border {
+  from { border: 3px solid palegreen; }
+  to { border: 3px solid green; }
 }
 
 .card{
