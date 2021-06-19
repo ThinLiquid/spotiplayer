@@ -180,3 +180,19 @@ const onChangeElement = (qSelector, cb)=>{
     console.error("onChangeElement: Invalid Selector")
  }
 }
+
+function search() {
+  var searchfor = document.querySelector('input').value
+  //try {
+    fetch('https://api.spotify.com/v1/search?=' + searchfor + '&type=track&market=GB&limit=10&include_external=no',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+      .then(response => response.json())
+      .then(data => {
+        for(i=0;i<data.items.length - 1;i++) {
+          var all = all.replace('undefined', '') + data.items[i].name
+          $('results').text(all)
+        }
+      })
+ // } catch (e) {
+    
+ // }
+}
