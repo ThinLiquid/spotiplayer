@@ -26,25 +26,28 @@
     <script src="/sketch.js"></script>
   </head>
   <body class="green lighten-2">
+    <div id="overlay">
+      <inputer style="postition:fixed;left:100%;top:20px;z-index:3!important;"><i class="material-icons green white-text" style="padding-top:10px;padding-left:10px;">search</i><input type="search"></inputer>
+    </div>
     <span id="lolza">
     <span style="position: relative;">
       <div style="padding-left:15%;" id="slide">
         <div id="login-page" class="row">
-          <inputer style="postition:fixed;left:100%;top:20px;"><i class="material-icons green white-text" style="padding-top:10px;padding-left:10px;">search</i><input type="search"></inputer>
           <div class="col s11 z-depth-6 card-panel container" style="padding:30px;">
             <center>
               <span id="album-metadata">
                 <span id="album-img">
-                  <img class="album" style="width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                  <img class="album" src="https://friconix.com/png/fi-snsuxl-question-mark.png" style="width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                 </span>
-                <h5 class="song-name"></h5>
+                <h5 class="song-name">Not Playing</h5>
+                <a onclick="document.querySelector('#overlay').style.display = 'block'">Search for Songs</a>
                 <span class="artists-name"></span>
               </span>
               
               <br>
               
               <a style="font-size:30px;color:black;vertical-align: middle;" onclick="prev()" class="material-icons">skip_previous</a>
-              <a style="font-size:50px;color:black;vertical-align: middle;" class="material-icons icons"></a>
+              <a style="font-size:50px;color:black;vertical-align: middle;" class="material-icons icons">pause</a>
               <a style="font-size:30px;color:black;vertical-align: middle;" onclick="next()" class="material-icons">skip_next</a>
               
               <br>

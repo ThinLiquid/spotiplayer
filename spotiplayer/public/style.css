@@ -29,14 +29,14 @@ body {
   border-bottom-right-radius:30px!important;
   padding-left:20px!important;
   padding-right:20px!important;
-  width:83%!important;
+  width:95%!important;
 }
 
 * inputer .material-icons {
   border-top-left-radius:30px!important;
   border-bottom-left-radius:30px!important;
   height:3rem!important;
-  width:5%;
+  width:2%;
   vertical-align: middle;
 }
 
@@ -151,4 +151,19 @@ canvas {
 
 a:hover {
   cursor:pointer;
+}
+
+#overlay {
+  padding:20px;
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
 }
