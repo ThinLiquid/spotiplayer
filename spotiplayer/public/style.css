@@ -190,13 +190,9 @@ a:hover {
   padding: 10px;
 }
 
-#overlay .card:hover {
-  animation-name: border;
-  animation-duration:0.5s;
-  animation-iteration-count:infinite;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+.card:hover {
   background-color: rgba(255, 255, 255, .15);
-  
+  background-size:1000000px;
   backdrop-filter: blur(10px);
 }
 
@@ -215,4 +211,10 @@ a:hover {
 
 hehe {
   padding:10px;
+}
+
+.card:hover {
+  animation-name: border;
+  animation-duration:0.5s;
+  animation-iteration-count:infinite;
 }
