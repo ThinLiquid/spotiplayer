@@ -184,11 +184,11 @@ const onChangeElement = (qSelector, cb)=>{
 function search() {
   var searchfor = document.querySelector('input').value
   //try {
-    fetch('https://api.spotify.com/v1/search?=' + searchfor + '&type=track&market=GB&limit=10&include_external=no',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+    fetch('https://api.spotify.com/v1/search?=' + searchfor + '&type=track&market=GB&limit=10',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
       .then(response => response.json())
       .then(data => {
-        for(i=0;i<data.items.length - 1;i++) {
-          var all = all.replace('undefined', '') + data.items[i].name
+        for(i=0;i<data.tracks.items.length - 1;i++) {
+          var all = all.replace('undefined', '') + ' ' +data.tracks.items[i - 1].name
           $('results').text(all)
         }
       })
