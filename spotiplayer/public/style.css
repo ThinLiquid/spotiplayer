@@ -180,8 +180,8 @@ a:hover {
   cursor: pointer; /* Add a pointer on hover */
 }
 
-results{
-  overflow:overlay;
+* #overlay{
+  overflow:scroll!important;
 }
 
 #overlay .card {
