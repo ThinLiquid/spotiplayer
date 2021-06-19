@@ -11,7 +11,7 @@ function search() {
   $('results').html("")
   var searchfor = document.querySelector('input').value
   try {
-    fetch('https://api.spotify.com/v1/search?q=' + searchfor + '&type=track&market=GB&limit=10',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+    fetch('https://api.spotify.com/v1/search?q=' + searchfor + '&type=track&market=GB&limit=50',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
       .then(response => response.json())
       .then(data => {
         for(i=0;i<data.tracks.items.length - 1;i++) {
@@ -27,7 +27,7 @@ function search() {
               }
             }
           }
-          $('results').append(`<hehe><div class="card"><a style="color:black;" onclick="plays('${all2}')"><div class="card-content"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div></a></div></hehe>`)
+          $('results').append(`<hehe><div class="card"><a style="color:white;" onclick="plays('${all2}')"><div class="card-content"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div></a></div></hehe>`)
           window.all ="";
         }
       })
