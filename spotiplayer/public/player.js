@@ -17,10 +17,17 @@ function search() {
         for(i=0;i<data.tracks.items.length - 1;i++) {
           var all = data.tracks.items[i].name
           for(a=0;a<data.tracks.items[i].artists.length;a++) {
-            if (data.tracks.items[i].artists[])
-            window.all = window.all + ', ' + data.tracks.items[i].artists[a].name
+            if (data.tracks.items[i].artists.length == 1) {
+              window.all = data.tracks.items[i].artists[a].name
+            } else {
+              window.all = window.all + ', ' + data.tracks.items[i].artists[a].name
+              if(window.all.includes(' , ') == true) {
+                window.all = window.all.replace(' , ', '')
+                alert('changes')
+              }
+            }
           }
-          $('results').append(`<div class="card"><a><div class="card-content"><h5>${all}</h5><br>by: ${window.all}</div></a></div><br>`)
+          $('results').append(`<div class="card"><a><div class="card-content"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div></a></div><br>`)
           window.all ="";
         }
       })
