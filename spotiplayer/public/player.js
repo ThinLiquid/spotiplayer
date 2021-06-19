@@ -28,10 +28,13 @@ function search() {
               }
             }
           }
+          $('.card').tilt({axis: 'y', scale: 1.2})
           $('results').append(`<hehe><div class="card"><a style="color:white;" onclick="plays('${all2}')"><div class="card-content row"><div class="col s9"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div><div class="col s3"><img src="${all3}" width="100%"></div></a></div></hehe>`)
+          $('.card').tilt({axis: 'y', scale: 1.2})
           window.all ="";
         }
       })
+    $('.card').tilt({axis: 'y', scale: 1.2})
    } catch (e) {
     
    }

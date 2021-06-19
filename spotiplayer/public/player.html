@@ -45,7 +45,6 @@
                   <img class="album" src="https://friconix.com/png/fi-snsuxl-question-mark.png" style="width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                 </span>
                 <h5 class="song-name">Not Playing</h5>
-                <a onclick="document.querySelector('#overlay').style.display = 'block'">Search for Songs</a>
                 <br>
                 <span class="artists-name"></span>
               </span>
@@ -78,3 +77,9 @@ $('.album').tilt({
   minGlare:.5
 })
 </script>
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large green">
+    <i onclick="document.querySelector('#overlay').style.display = 'block'" class="large material-icons">search</i>
+  </a>
+</div>
