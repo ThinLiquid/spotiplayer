@@ -27,7 +27,7 @@
   </head>
   <body class="green lighten-2">
     <div id="overlay">
-      <inputer style="postition:fixed;left:100%;top:20px;z-index:3!important;"><i class="material-icons green white-text" style="padding-top:10px;padding-left:10px;">search</i><input type="search"></inputer>
+      <inputer style="postition:fixed;left:100%;top:20px;z-index:3!important;"><i class="material-icons main green white-text" style="padding-top:10px;padding-left:10px;">search</i><input type="search"><i class="material-icons alt white gray-text" onclick="document.querySelector('#overlay').style.display = 'none'" style="padding-top:10px;padding-left:10px;">close</i></inputer>
     </div>
     <span id="lolza">
     <span style="position: relative;">
@@ -41,6 +41,7 @@
                 </span>
                 <h5 class="song-name">Not Playing</h5>
                 <a onclick="document.querySelector('#overlay').style.display = 'block'">Search for Songs</a>
+                <br>
                 <span class="artists-name"></span>
               </span>
               

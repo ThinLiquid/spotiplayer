@@ -25,19 +25,30 @@ body {
 * inputer input{
   border-bottom:none!important;
   background:white!important;
-  border-top-right-radius:30px!important;
-  border-bottom-right-radius:30px!important;
   padding-left:20px!important;
   padding-right:20px!important;
-  width:95%!important;
+  width:90%!important;
+  height:45px!important;
 }
 
-* inputer .material-icons {
+* inputer .material-icons.main {
   border-top-left-radius:30px!important;
   border-bottom-left-radius:30px!important;
-  height:3rem!important;
+  height:45px!important;
   width:2%;
   vertical-align: middle;
+}
+
+* inputer .material-icons.alt {
+  border-top-right-radius:30px!important;
+  border-bottom-right-radius:30px!important;
+  height:45px!important;
+  width:2%;
+  vertical-align: middle;
+}
+
+* inputer input::after {
+  content:'lol';
 }
 
 * inputer, .container {
