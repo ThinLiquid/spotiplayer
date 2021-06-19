@@ -60,6 +60,8 @@ if(getParameterByName('error') == "true") {
       if (getParameterByName('status') == "SyntaxError: Unexpected token T in JSON at position 0") {
         $('.ajs-content').append("<br>Process may take up to 24hrs to resolve.")
       }
+      alertify.alert('There was an error. Try again later.<br><code>' + getParameterByName('status') + " [Error Code: " + getParameterByName('code') + "]</code><br>")
+      document.querySelector('.ajs-header').innerText = "SpotiPlayer Alert";
       document.querySelector('.ajs-ok').setAttribute('class', document.querySelector('.ajs-ok').getAttribute('class') + ' waves-effect waves-dark')
     }, 600)
 }

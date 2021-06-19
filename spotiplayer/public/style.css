@@ -1,6 +1,7 @@
 body, html {
   height: 100%;
   font-family: Roboto;
+  overflow:none;
 }
 
 html {
@@ -27,7 +28,7 @@ body {
   background:white!important;
   padding-left:20px!important;
   padding-right:20px!important;
-  width:90%!important;
+  width:93.5%!important;
   height:45px!important;
 }
 
@@ -177,4 +178,12 @@ a:hover {
   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
+}
+
+results{
+  overflow:overlay;
+}
+
+#overlay .card {
+  width:25%;
 }

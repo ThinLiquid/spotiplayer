@@ -24,10 +24,14 @@
     <link rel="stylesheet" href="/style.css">
     <script src="/player.js"></script>
     <script src="/sketch.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
   </head>
   <body class="green lighten-2">
     <div id="overlay">
-      <inputer style="postition:fixed;left:100%;top:20px;z-index:3!important;"><i onclick="search()" class="material-icons main green white-text" style="padding-top:10px;padding-left:10px;">search</i><input type="search"><i class="material-icons alt white gray-text" onclick="document.querySelector('#overlay').style.display = 'none'" style="padding-top:10px;padding-left:10px;">close</i></inputer>
+      <inputer style="postition:fixed;left:100%;top:20px;z-index:3!important;"><i onclick="search()" class="material-icons main green white-text" style="padding-top:0.5%;padding-left:0.5%;">search</i><input type="search"><i class="material-icons alt white gray-text" onclick="document.querySelector('#overlay').style.display = 'none'" style="padding-top:0.5%;padding-left:0.5%;">close</i></inputer>
       <results></results>
     </div>
     <span id="lolza">
