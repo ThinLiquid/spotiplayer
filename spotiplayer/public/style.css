@@ -53,7 +53,7 @@ body {
 }
 
 * inputer, .container {
-  animation-name: example;
+  animation-name: border;
   animation-duration: 20s;
   animation-iteration-count: infinite;
 }
@@ -221,4 +221,11 @@ hehe {
 
 * .progress {
   margin: auto!important;
+  width:10px;
+}
+
+.album {
+  animation-name: border;
+  animation-duration:0.5s;
+  animation-iteration-count:infinite;
 }
