@@ -41,13 +41,16 @@ function search() {
 }
 
 setInterval(function(){
+  $('.card').tilt({axis: 'y', scale: 1.2})
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
     .then(data => {
       try {
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
-          document.querySelector('.determinate.green').setAttribute('style', `width:${parseInt(data.progress_ms)/1500}%;`)
+          document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
+          document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
+          document.querySelector('')
           $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
 
           if(data.is_playing != true) {
