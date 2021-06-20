@@ -56,6 +56,16 @@ setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
     .then(data => {
+    fetch('https://api.spotify.com/v1/audio-analysis/'+data.item.id,{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+    .then(response => response.json())
+    .then(data3 => {
+      document.querySelector('.container').style.animation.duration = `${data3.track.tempo / data3.track.time_signature / 1000}`
+      document.querySelector('.container').style.animation.name =  `border`
+      //document.querySelector('.container').style.animation.iteration.count = `infinite`
+      document.querySelector('.album').style.animation.duration = `${data3.track.tempo / data3.track.time_signature / 1000}`
+      document.querySelector('.album').style.animation.name =  `border`
+      //document.querySelector('.album').style.animation.iteration.count = `infinite`
+    })
       try {
             fetch('https://api.spotify.com/v1/me/player',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
           .then(response => response.json())

@@ -52,12 +52,6 @@ body {
   content:'lol';
 }
 
-* inputer, .container {
-  animation-name: border;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
-}
-
 @keyframes example {
   0% {box-shadow: 0 0 0px green;}
   25% {box-shadow: 0 0 0px green;}
@@ -222,10 +216,4 @@ hehe {
 * .progress {
   margin: auto!important;
   width:10px;
-}
-
-.album {
-  animation-name: border;
-  animation-duration:0.5s;
-  animation-iteration-count:infinite;
 }
