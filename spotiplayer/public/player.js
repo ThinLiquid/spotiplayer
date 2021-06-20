@@ -4,8 +4,15 @@ fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ metho
       return response.json()
     })
     .catch(function(error) {
+        if (window.wait == 401) {
+          window.loaction.href= `/?error=true&status=Access Token expired&code=${window.wait}`
+        }
         window.location.href = `/?error=true&status=${error}&code=${window.wait}`
     });
+
+if (getParameterByName('access_token') == null) {
+  window.loaction.href= `/?error=true&status=Invalid Access Token&code=401`
+}
 
 function search() {
   $('results').html("")
@@ -47,7 +54,8 @@ setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
     .then(data => {
-    fetch('https://api.spotify.com/v1/me/player',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
+      try {
+            fetch('https://api.spotify.com/v1/me/player',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
           .then(response => response.json())
           .then(data2 => {
             document.querySelector("#device").innerText = data2.device.name
@@ -58,8 +66,11 @@ setInterval(function(){
             if (data2.device.type == "Computer") {
               document.querySelector(".material-icons.devicer").innerHTML = "computer"
             }
+      
+            if (data2.device.type == "SpotiPlayer") {
+              document.querySelector("#spotiplayer").innerHTML = `<img src="https://i.imgur.com/XmrTgBt.png" width="20em">`
+            }
           })
-      try {
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
