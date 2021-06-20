@@ -48,10 +48,15 @@ setInterval(function(){
     .then(response => response.json())
     .then(data => {
       try {
+        fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
+          .then(response => response.json())
+          .then(data2 => {
+            $("#device").text(data2.device.name)
+          })
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
-          document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
+          document.querySelector('img.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
           document.querySelector('.song-artists').innerHTML = "";
           $('.progresser').text(millis(data.progress_ms))
           
