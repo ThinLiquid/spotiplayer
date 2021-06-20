@@ -50,7 +50,7 @@ setInterval(function(){
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
           document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
-          document.querySelector('')
+          document.querySelector('.song-artists').innerHTML = "";
           $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
 
           if(data.is_playing != true) {
