@@ -1,14 +1,16 @@
+setInterval(function(){
 fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
     .then(response => {
       window.wait=response.status
+  if (window.wait == 401) {
+          window.location.href= `/?error=true&status=Access Token expired&code=${window.wait}`
+        }
       return response.json()
     })
     .catch(function(error) {
-        if (window.wait == 401) {
-          window.loaction.href= `/?error=true&status=Access Token expired&code=${window.wait}`
-        }
         window.location.href = `/?error=true&status=${error}&code=${window.wait}`
     });
+}, 1000)
 
 if (getParameterByName('access_token') == null) {
   window.loaction.href= `/?error=true&status=Invalid Access Token&code=401`
@@ -74,7 +76,7 @@ setInterval(function(){
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
-          document.querySelector('img.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
+          document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
           document.querySelector('.song-artists').innerHTML = "";
           $('.progresser').text(millis(data.progress_ms))
           

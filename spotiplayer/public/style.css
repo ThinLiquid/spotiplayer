@@ -218,3 +218,7 @@ hehe {
   animation-duration:0.5s;
   animation-iteration-count:infinite;
 }
+
+* .progress {
+  margin: auto!important;
+}
