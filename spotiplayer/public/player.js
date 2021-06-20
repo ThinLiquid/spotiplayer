@@ -18,6 +18,8 @@ function search() {
           var all = data.tracks.items[i].name
           var all2 = data.tracks.items[i].id
           var all3 = data.tracks.items[i].album.images[0].url
+          var duration = millis(data.tracks.items[i].duration_ms)
+          var all4 = data.tracks.items[i].preview_url
           for(a=0;a<data.tracks.items[i].artists.length;a++) {
             if (data.tracks.items[i].artists.length == 1) {
               window.all = data.tracks.items[i].artists[a].name
@@ -29,7 +31,7 @@ function search() {
             }
           }
           $('.card').tilt({axis: 'y', scale: 1.2})
-          $('results').append(`<hehe><div class="card"><a style="color:white;" onclick="plays('${all2}')"><div class="card-content row"><div class="col s9"><h5>${all}</h5><br><p class="by">by: ${window.all}</p></div><div class="col s3"><img src="${all3}" width="100%"></div></a></div></hehe>`)
+          $('results').append(`<hehe><div class="card"><a style="color:white;" onclick="plays('${all2}')"><div class="card-content row"><div class="col s9"><h5>${all}</h5><br><p class="by">by: ${window.all}</p>${duration}<br>Preview:<br><audio controls><source src="${all4}"></audio></div><div class="col s3"><img src="${all3}" width="100%"></div></a></div></hehe>`)
           $('.card').tilt({axis: 'y', scale: 1.2})
           window.all ="";
         }
@@ -138,7 +140,7 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-function millisToMinutesAndSeconds(millis) {
+function millis(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
