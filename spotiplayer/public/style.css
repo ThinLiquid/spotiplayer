@@ -28,21 +28,20 @@ body {
   background:white!important;
   padding-left:20px!important;
   padding-right:20px!important;
-  width:93.5%!important;
+  width:48%!important;
   height:45px!important;
+  border-top-right-radius:30px!important;
+  border-bottom-right-radius:30px!important;
+}
+
+* inputer {
+  margin: auto;
+  width:50%;
 }
 
 * inputer .material-icons.main {
   border-top-left-radius:30px!important;
   border-bottom-left-radius:30px!important;
-  height:45px!important;
-  width:2%;
-  vertical-align: middle;
-}
-
-* inputer .material-icons.alt {
-  border-top-right-radius:30px!important;
-  border-bottom-right-radius:30px!important;
   height:45px!important;
   width:2%;
   vertical-align: middle;

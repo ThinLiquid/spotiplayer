@@ -18,8 +18,6 @@
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.sound.min.js"></script>
     
     <link rel="stylesheet" href="/style.css">
     <script src="/player.js"></script>
@@ -31,7 +29,7 @@
   </head>
   <body class="green lighten-2">
     <div id="overlay">
-      <inputer style="postition:fixed;left:100%;top:20px;z-index:3!important;"><i onclick="search()" class="material-icons main green white-text" style="padding-top:0.5%;padding-left:0.5%;">search</i><input onkeyup="enter()" type="search"><i class="material-icons alt white gray-text" onclick="document.querySelector('#overlay').style.display = 'none'" style="padding-top:0.5%;padding-left:0.5%;">close</i></inputer>
+      <inputer style="postition:fixed;left:100%;top:20px;z-index:3!important;"><i onclick="search()" class="material-icons main green white-text" style="padding-top:0.5%;padding-left:0.5%;">search</i><input onkeyup="enter()" type="search"></inputer>
       <results></results>
     </div>
     <span id="lolza">
@@ -79,6 +77,6 @@ $('.album').tilt({
 
 <div class="fixed-action-btn">
   <a class="btn-floating btn-large green">
-    <i onclick="document.querySelector('#overlay').style.display = 'block'" class="large material-icons">search</i>
+    <i onclick="searcher()" class="large material-icons">search</i>
   </a>
 </div>
