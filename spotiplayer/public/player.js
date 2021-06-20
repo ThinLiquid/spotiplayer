@@ -53,7 +53,8 @@ setInterval(function(){
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
           document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
           document.querySelector('.song-artists').innerHTML = "";
-          $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
+          $('.progresser').text(millis(data.progress_ms))
+          
 
           if(data.is_playing != true) {
             $('.icons').text('play_arrow')
@@ -98,8 +99,8 @@ setInterval(function(){
           } 
           
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
-          $('.progresser').text(millisToMinutesAndSeconds(data.progress_ms))
-          $('.progresser-alt').text(millisToMinutesAndSeconds(data.item.duration_ms))
+          $('.progresser').text(millis(data.progress_ms))
+          $('.progresser-alt').text(millis(data.item.duration_ms))
 
           if(data.is_playing != true) {
             $('.icons').text('play_arrow')
