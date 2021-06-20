@@ -47,12 +47,19 @@ setInterval(function(){
   fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
     .then(response => response.json())
     .then(data => {
-      try {
-        fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
+    fetch('https://api.spotify.com/v1/me/player',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token'), 'Retry-After': 0 }})
           .then(response => response.json())
           .then(data2 => {
-            $("#device").text(data2.device.name)
+            document.querySelector("#device").innerText = data2.device.name
+            if (data2.device.type == "Tablet") {
+              document.querySelector(".devicer").innerHTML = "tablet"
+            } 
+            
+            if (data2.device.type == "Computer") {
+              document.querySelector(".material-icons.devicer").innerHTML = "computer"
+            }
           })
+      try {
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
