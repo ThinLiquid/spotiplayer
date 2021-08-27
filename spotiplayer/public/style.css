@@ -219,10 +219,10 @@ hehe {
   width:10px;
 }
 
-.card {
-  transform-style: preserve-3d
+* .card {
+  transform-style: preserve-3d!important;
 }
 
-.card a {
-  transform: translateZ(20px)
+* .card a {
+  transform: translateZ(20px)!important;
 }

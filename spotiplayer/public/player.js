@@ -48,7 +48,7 @@ function search() {
           $('.card').tilt({disableAxis: 'y', scale: 1.2})
         }
       })
-    $('.card').tilt({disableAxis: 'y', scale: 1.2})
+    $('.card').tilt({scale: 1.2})
    } catch (e) {
     
    }
