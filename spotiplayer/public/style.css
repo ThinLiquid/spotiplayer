@@ -218,3 +218,11 @@ hehe {
   margin: auto!important;
   width:10px;
 }
+
+.card {
+  transform-style: preserve-3d
+}
+
+.card a {
+  transform: translateZ(20px)
+}
