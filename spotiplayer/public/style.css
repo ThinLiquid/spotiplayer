@@ -137,6 +137,10 @@ img, inputer .card {
   border-radius: 10px;
 }
 
+img {
+  user-select:none;
+}
+
 .chip {
   user-select:text;
 }
