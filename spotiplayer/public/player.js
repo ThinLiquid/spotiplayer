@@ -79,8 +79,9 @@ setInterval(function(){
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
-          document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
-          document.body.removeAttribute("style")
+          toDataUrl('https://friconix.com/png/fi-snsuxl-question-mark.png', function(data) {
+            document.querySelector('.album').setAttribute('src', data)
+          })
           document.querySelector('.song-artists').innerHTML = "";
           $('.progresser').text(millis(data.progress_ms))
           
@@ -94,17 +95,19 @@ setInterval(function(){
           }
         } else {
           fetch('https://api.spotify.com/v1/audio-analysis/'+data.item.id,{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
-    .then(response => response.json())
-    .then(data3 => {
-      d3.selectAll('.container').style('animation-name', 'border');
-      d3.selectAll('.container').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
-      d3.selectAll(".container").style("animation-iteration-count", "infinite");
-      d3.selectAll('.album').style('animation-name', 'border')
-      d3.selectAll('.album').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
-      d3.selectAll(".album").style("animation-iteration-count", "infinite");
-    })
-          document.body.setAttribute("style", `background:url(${data.item.album.images[0].url})`)
-          document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
+            .then(response => response.json())
+            .then(data3 => {
+              d3.selectAll('.container').style('animation-name', 'border');
+              d3.selectAll('.container').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
+              d3.selectAll(".container").style("animation-iteration-count", "infinite");
+              d3.selectAll('.album').style('animation-name', 'border')
+              d3.selectAll('.album').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
+              d3.selectAll(".album").style("animation-iteration-count", "infinite");
+          })
+          toDataUrl(data.item.album.images[0].url, function(data2) {
+            document.body.setAttribute("style", `background:url(${data2})`)
+            document.querySelector('.album').setAttribute('src', data2)
+          })
           document.querySelector('.song-name').innerText = data.item.name
           
           if (data.item.artists.length == 1) {
@@ -293,22 +296,18 @@ setInterval(function() {
   }
 }, 10)
 
-function toDataUrl(img) {
-   try {
-     // Create canvas
-   const canvas = document.createElement('canvas');
-   const ctx = canvas.getContext('2d');
-   // Set width and height
-   canvas.width = img.width;
-   canvas.height = img.height;
-   // Draw the image
-     img.onload = function() {
-       ctx.drawImage(img, 0, 0);
-       return canvas.toDataURL('image/jpeg');
-     }
-   } catch(e) {
-     console.log(e.message)
-   }
+function toDataUrl(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function() {
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      callback(reader.result);
+    }
+    reader.readAsDataURL(xhr.response);
+  };
+  xhr.open('GET', url);
+  xhr.responseType = 'blob';
+  xhr.send();
 }
 
 function getAverageRGB(imgEl) {

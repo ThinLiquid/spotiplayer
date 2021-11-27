@@ -9,6 +9,10 @@ html {
   margin: auto;
 }
 
+canvas {
+  opacity:0.1;
+}
+
 .blur {
   position:fixed;
   top:0;
