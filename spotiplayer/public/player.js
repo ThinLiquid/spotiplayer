@@ -79,7 +79,7 @@ setInterval(function(){
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
-          document.querySelector('.album').setAttribute('src', toDataUrl('https://friconix.com/png/fi-snsuxl-question-mark.png'))
+          document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
           document.body.removeAttribute("style")
           document.querySelector('.song-artists').innerHTML = "";
           $('.progresser').text(millis(data.progress_ms))
@@ -104,7 +104,7 @@ setInterval(function(){
       d3.selectAll(".album").style("animation-iteration-count", "infinite");
     })
           document.body.setAttribute("style", `background:url(${data.item.album.images[0].url})`)
-          document.querySelector('.album').setAttribute('src', toDataUrl(data.item.album.images[0].url))
+          document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
           document.querySelector('.song-name').innerText = data.item.name
           
           if (data.item.artists.length == 1) {
@@ -287,7 +287,7 @@ function searcher() {
 
 setInterval(function() {
   $('.card').tilt({disableAxis: 'y', scale: 1.2})
-  var rgb = getAverageRGB(document.querySelector('img'));
+  var rgb = getAverageRGB(document.querySelector('.album'));
   for(i=0;i<document.querySelectorAll('.primary').length;i++) {
     document.querySelectorAll('.primary')[i].setAttribute('style', 'background:rgb('+rgb.r+','+rgb.g+','+rgb.b+')!important')
   }
@@ -302,8 +302,10 @@ function toDataUrl(img) {
    canvas.width = img.width;
    canvas.height = img.height;
    // Draw the image
-   ctx.drawImage(img, 0, 0);
-     return canvas.toDataURL('image/je');
+     img.onload = function() {
+       ctx.drawImage(img, 0, 0);
+       return canvas.toDataURL('image/jpeg');
+     }
    } catch(e) {
      console.log(e.message)
    }
