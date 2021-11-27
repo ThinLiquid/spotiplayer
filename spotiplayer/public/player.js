@@ -78,12 +78,11 @@ setInterval(function(){
           })
         if (data.currently_playing_type === "ad") {
           document.querySelector('.song-name').innerText = "Advertisment"
-          document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
           toDataUrl('https://friconix.com/png/fi-snsuxl-question-mark.png', function(data) {
             document.querySelector('.album').setAttribute('src', data)
           })
           document.querySelector('.song-artists').innerHTML = "";
-          $('.progresser').text(millis(data.progress_ms))
+          $('.progresser').text("0:00")
           
 
           if(data.is_playing != true) {
@@ -94,16 +93,6 @@ setInterval(function(){
             document.querySelector('.icons').setAttribute('onclick', 'pause()')
           }
         } else {
-          fetch('https://api.spotify.com/v1/audio-analysis/'+data.item.id,{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
-            .then(response => response.json())
-            .then(data3 => {
-              d3.selectAll('.container').style('animation-name', 'border');
-              d3.selectAll('.container').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
-              d3.selectAll(".container").style("animation-iteration-count", "infinite");
-              d3.selectAll('.album').style('animation-name', 'border')
-              d3.selectAll('.album').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
-              d3.selectAll(".album").style("animation-iteration-count", "infinite");
-          })
           toDataUrl(data.item.album.images[0].url, function(data2) {
             document.body.setAttribute("style", `background:url(${data2})`)
             document.querySelector('.album').setAttribute('src', data2)
@@ -141,7 +130,6 @@ setInterval(function(){
             }
           } 
           
-          document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
           $('.progresser').text(millis(data.progress_ms))
           $('.progresser-alt').text(millis(data.item.duration_ms))
 
@@ -290,11 +278,14 @@ function searcher() {
 
 setInterval(function() {
   $('.card').tilt({disableAxis: 'y', scale: 1.2})
+}, 10)
+
+setInterval(function() {
   var rgb = getAverageRGB(document.querySelector('.album'));
   for(i=0;i<document.querySelectorAll('.primary').length;i++) {
     document.querySelectorAll('.primary')[i].setAttribute('style', 'background:rgb('+rgb.r+','+rgb.g+','+rgb.b+')!important')
   }
-}, 10)
+})
 
 function toDataUrl(url, callback) {
   var xhr = new XMLHttpRequest();
