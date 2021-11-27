@@ -9,6 +9,14 @@ html {
   margin: auto;
 }
 
+.blur {
+  position:fixed;
+  filter:blur(20px);
+  width:100vw;
+  height:100vh;
+  z-index:9;
+}
+
 body {
   display: table-cell;
   vertical-align: middle;
@@ -16,6 +24,7 @@ body {
 }
 
 #login-page {
+  z-index:10;
   width: 1000px;
 }
 

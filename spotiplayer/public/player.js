@@ -80,6 +80,7 @@ setInterval(function(){
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
           document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
+          document.querySelector(".blur").removeAttribute("style")
           document.querySelector('.song-artists').innerHTML = "";
           $('.progresser').text(millis(data.progress_ms))
           
@@ -102,6 +103,7 @@ setInterval(function(){
       d3.selectAll('.album').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
       d3.selectAll(".album").style("animation-iteration-count", "infinite");
     })
+          document.querySelector(".blur").setAttribute("style", `background:url(${data.item.album.images[0].url})`)
           document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
           document.querySelector('.song-name').innerText = data.item.name
           
