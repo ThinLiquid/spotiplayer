@@ -80,7 +80,7 @@ setInterval(function(){
           document.querySelector('.song-name').innerText = "Advertisment"
           document.querySelector('.progress').setAttribute('style', `width:${millis2(data.progress_ms) * millis2(data.item.duration_ms) / 3000}%;`)
           document.querySelector('.album').setAttribute('src', 'https://friconix.com/png/fi-snsuxl-question-mark.png')
-          document.querySelector(".blur").removeAttribute("style")
+          document.body.removeAttribute("style")
           document.querySelector('.song-artists').innerHTML = "";
           $('.progresser').text(millis(data.progress_ms))
           
@@ -103,7 +103,7 @@ setInterval(function(){
       d3.selectAll('.album').style('animation-duration', `${data3.track.tempo / data3.track.time_signature / 1000}`)
       d3.selectAll(".album").style("animation-iteration-count", "infinite");
     })
-          document.querySelector(".blur").setAttribute("style", `background:url(${data.item.album.images[0].url})`)
+          document.body.setAttribute("style", `background:url(${data.item.album.images[0].url})`)
           document.querySelector('.album').setAttribute('src', data.item.album.images[0].url)
           document.querySelector('.song-name').innerText = data.item.name
           
@@ -287,4 +287,51 @@ function searcher() {
 
 setInterval(function() {
   $('.card').tilt({disableAxis: 'y', scale: 1.2})
+  var rgb = getAverageRGB(document.querySelector('img'));
+  alert('rgb('+rgb.r+','+rgb.g+','+rgb.b+')');
 }, 10)
+
+function getAverageRGB(imgEl) {
+    
+    var blockSize = 5, // only visit every 5 pixels
+        defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+        canvas = document.createElement('canvas'),
+        context = canvas.getContext && canvas.getContext('2d'),
+        data, width, height,
+        i = -4,
+        length,
+        rgb = {r:0,g:0,b:0},
+        count = 0;
+        
+    if (!context) {
+        return defaultRGB;
+    }
+    
+    height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+    width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+    
+    context.drawImage(imgEl, 0, 0);
+    
+    try {
+        data = context.getImageData(0, 0, width, height);
+    } catch(e) {
+        return defaultRGB;
+    }
+    
+    length = data.data.length;
+    
+    while ( (i += blockSize * 4) < length ) {
+        ++count;
+        rgb.r += data.data[i];
+        rgb.g += data.data[i+1];
+        rgb.b += data.data[i+2];
+    }
+    
+    // ~~ used to floor values
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+    
+    return rgb;
+    
+}
