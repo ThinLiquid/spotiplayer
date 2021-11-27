@@ -28,34 +28,34 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
   </head>
   <body class="green lighten-2">
-    <div class="blur"></div>
-    <div id="overlay">
+    <div class="blur" style="user-select:none;"></div>
+    <div style="user-select:none;" id="overlay">
       <inputer style="postition:fixed;top:20px;z-index:3!important;width:600px;"><input style="margin-left:-60px;" onkeyup="enter()" type="search"></inputer>
       <results></results>
     </div>
     <span id="lolza">
-    <span style="position: relative;">
+    <span style="position: relative;" style="user-select:none;">
       <div style="padding-left:15%;" id="slide">
         <div id="login-page" class="row">
           <div class="col s11 z-depth-6 card-panel container" style="padding:30px;">
             <center>
               <span id="album-metadata">
                 <span id="album-img">
-                  <img class="album" src="https://friconix.com/png/fi-snsuxl-question-mark.png" style="width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                  <img style="user-select:none;" class="album" src="https://friconix.com/png/fi-snsuxl-question-mark.png" style="width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                 </span>
-                <h5 class="song-name">Not Playing</h5>
+                <h5 style="user-select:text;" class="song-name">Not Playing</h5>
                 <span class="artists-name"></span>
               </span>
               
               <br>
               
-              <span class="progresser" style="color:black;">0:00</span>/<span class="progresser-alt" style="color:black;">0:00</span>
+              <span class="progresser" style="color:black;user-select:text;">0:00</span>/<span class="progresser-alt" style="color:black;">0:00</span>
               
               <br>
               
-              <a style="font-size:30px;color:black;vertical-align: middle;" onclick="prev()" class="material-icons">skip_previous</a>
-              <a style="font-size:50px;color:black;vertical-align: middle;" class="material-icons icons">pause</a>
-              <a style="font-size:30px;color:black;vertical-align: middle;" onclick="next()" class="material-icons">skip_next</a>
+              <a style="font-size:30px;color:black;vertical-align: middle;user-select:none;" onclick="prev()" class="material-icons e">skip_previous</a>
+              <a style="font-size:50px;color:black;vertical-align: middle;user-select:none;" class="material-icons icons e">pause</a>
+              <a style="font-size:30px;color:black;vertical-align: middle;user-select:none;" onclick="next()" class="material-icons e">skip_next</a>
               
               <br>
               

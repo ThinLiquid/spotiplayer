@@ -282,14 +282,16 @@ setInterval(function() {
 
 setInterval(function() {
   var rgb = getAverageRGB(document.querySelector('.album'));
-  document.querySelector('.card').style.setProperty("--lightgreen", pSBC(0.3, 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')'));
-  document.querySelector('.card').style.setProperty("--darkgreen", 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')');
   for(i=0;i<document.querySelectorAll('.primary').length;i++) {
     document.querySelectorAll('.primary')[i].setAttribute('style', 'background:rgb('+rgb.r+','+rgb.g+','+rgb.b+')!important')
   }
-  for(i=0;i<document.querySelectorAll('.card').length;i++) {
-    document.querySelectorAll('.card')[i].style.setProperty("--lightgreen", pSBC(0.3, 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')'));
-    document.querySelectorAll('.card')[i].style.setProperty("--darkgreen", 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')');
+  try {
+    for(i=0;i<document.querySelectorAll(':root').length;i++) {
+    document.querySelectorAll(':root')[i].style.setProperty("--lightgreen", pSBC(0.3, 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')'));
+    document.querySelectorAll(':root')[i].style.setProperty("--darkgreen", 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')');
+  }
+  } catch(e) {
+    
   }
 })
 

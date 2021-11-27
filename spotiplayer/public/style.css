@@ -113,8 +113,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
   animation: slide 0.5s forwards;
 }
 
-* a:hover {
-  color: green !important;
+* a.material-icons.e:hover {
+  color: var(--darkgreen) !important;
+}
+
+*::selection {
+  background:var(--darkgreen);
 }
 
 @-webkit-keyframes slide {
@@ -131,6 +135,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 img, inputer .card {
   border-radius: 10px;
+}
+
+.chip {
+  user-select:text;
 }
 
 .song-name {
