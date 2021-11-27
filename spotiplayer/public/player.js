@@ -66,14 +66,14 @@ setInterval(function(){
             document.querySelector("#device").innerText = data2.device.name
             if (data2.device.type == "Tablet") {
               document.querySelector(".devicer").innerHTML = "tablet"
-            } 
-            
-            if (data2.device.type == "Computer") {
+            } else if (data2.device.type == "Computer") {
               document.querySelector(".material-icons.devicer").innerHTML = "computer"
-            }
-      
-            if (data2.device.type == "SpotiPlayer") {
+            } else if (data2.device.type == "SpotiPlayer") {
               document.querySelector("#spotiplayer").innerHTML = `<img src="https://i.imgur.com/XmrTgBt.png" width="20em">`
+            } else if (data2.device.type == "TV") {
+              document.querySelector(".material-icons.devicer").innerHTML = "tv"
+            } else if (data2.device.type == "Phone") {
+              document.querySelector(".material-icons.devicer").innerHTML = "phone"
             }
           })
         if (data.currently_playing_type === "ad") {
