@@ -197,11 +197,13 @@ a:hover {
 }
 
 @keyframes border {
-  from { border: 3px solid palegreen; }
-  to { border: 3px solid green; }
+  from { border: 3px solid var(--darkgreen); }
+  to { border: 3px solid var(--lightgreen); }
 }
 
 .card{
+  --lightgreen:green;
+  --darkgreen:palegreen;
   background-color: rgba(0,0,0,23%)!important;
 }
 
