@@ -103,10 +103,12 @@ setInterval(function(){
           } else {
             
             for (i = 0;i < data.item.artists.length;i++) {
+              var imgurl;
+              var imgurl2 = imgurl;
               fetch("https://api.spotify.com/v1/artists/" + data.item.artists[i].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
                 .then(res => res.json())
                 .then(images => {
-                  $('.artists-name').append(`<div class="chip"><img src="${images.images[0].url}">${data.item.artists[i].id}</div>&nbsp;`)
+                  imgurl = images.images[0].url;
                 })
               $('.album').one('DOMSubtreeModified', function(){
                 document.querySelectorAll('span')[4].innerHTML = "";
@@ -126,6 +128,7 @@ setInterval(function(){
                   
                 }
               }
+              document.querySelector('.artists-name').innerHTML += `<div class="chip"><img src="${imgurl2}">${data.item.artists[i].name}</div>&nbsp;`
             }
           } 
           
