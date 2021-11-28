@@ -107,14 +107,22 @@ setInterval(function(){
               fetch("https://api.spotify.com/v1/artists/" + data.item.artists[i].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
                 .then(res => res.json())
                 .then(images => {
-                fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+                  fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
                   .then(response => response.json())
                   .then(data3 => {
-                    document.querySelector(".artists-name").innerHTML += `<div class="chip"><img src="${images.images[0].url}">${data3.item.artists[i].name}</div>`
+                    document.querySelector(".artists-name").innerHTML += `<div class="chip"><img src="${images.images[0].url}">${data.item.artists[i].name}</div>`
+                    if (document.querySelectorAll(".chip").length == data.item.artists.length) {
+                      document.querySelector(".artists-name").removeAttribute("class")
+                return;
+              }
                   })
                 })
               
               
+              $('.song-name').one('DOMSubtreeModified', function(){
+                document.querySelectorAll('span')[4].innerHTML = "";
+                document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
+              });
               
               var all = all + ', ' + data.item.artists[i].name
               document.title = `Now Playing: ${data.item.name} by ${all.replace('undefined,', '')} | SpotiPlayer`
