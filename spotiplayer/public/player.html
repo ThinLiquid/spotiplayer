@@ -33,7 +33,7 @@
       <inputer style="postition:fixed;top:20px;z-index:3!important;width:600px;"><input style="margin-left:-60px;" onkeyup="enter()" type="search"></inputer>
       <results></results>
     </div>
-    <span style="user-select:none!important;" id="lolza">
+    <span id="lolza">
     <span style="position: relative;">
       <div style="padding-left:15%;" id="slide">
         <div id="login-page" class="row">
@@ -41,24 +41,20 @@
             <center>
               <span id="album-metadata">
                 <span id="album-img">
-                  <img class="album" src="https://friconix.com/png/fi-snsuxl-question-mark.png" style="user-select:none;width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                  <img class="album" style="transition:all .5s ease;" src="https://friconix.com/png/fi-snsuxl-question-mark.png" style="user-select:none;width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                 </span>
-                <h5 style="user-select:text;" class="song-name">Not Playing</h5>
+                <h5 style="user-select:auto;" class="song-name">Not Playing</h5>
                 <span class="artists-name"></span>
               </span>
-              
               <br>
-              
-              <span class="progresser" style="color:white;user-select:text;">0:00</span>/<span style="color:white;user-select:text;" class="progresser-alt" >0:00</span>
-              
+              <span class="progresser" style="color:white;user-select:auto;">0:00</span>/<span style="color:white;user-select:auto;" class="progresser-alt" >0:00</span>
               <br>
-              
-              <a style="font-size:30px;color:white;vertical-align: middle;user-select:none;" onclick="prev()" class="material-icons e">skip_previous</a>
-              <a style="font-size:50px;color:white;vertical-align: middle;user-select:none;" class="material-icons icons e">pause</a>
-              <a style="font-size:30px;color:white;vertical-align: middle;user-select:none;" onclick="next()" class="material-icons e">skip_next</a>
-              
+              <span style="user-select:none;">
+                <a style="font-size:30px;color:white;vertical-align: middle;user-select:none;" onclick="prev()" class="material-icons e">skip_previous</a>
+                <a style="font-size:50px;color:white;vertical-align: middle;user-select:none;" class="material-icons icons e">pause</a>
+                <a style="font-size:30px;color:white;vertical-align: middle;user-select:none;" onclick="next()" class="material-icons e">skip_next</a>
+              </span>
               <br>
-              
               Playing on: <span id="device"></span>&nbsp;<span style="vertical-align: middle;" class="material-icons devicer"></span><span style="vertical-align: middle;" id="spotiplayer"></span>
             </center>
           </div>

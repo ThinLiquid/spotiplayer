@@ -1,8 +1,12 @@
+* {
+  transition:all .5s ease-in-out;
+}
+
 body, html {
   height: 100%;
   font-family: Roboto;
   overflow:none;
-  background-size: 500%;
+  background-size: cover!important;
 }
 
 html {
@@ -12,6 +16,10 @@ html {
 
 canvas {
   opacity:0.1;
+}
+
+br, .material-icons {
+  user-select:none;
 }
 
 .blur {
@@ -121,6 +129,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 *::selection {
   background:var(--darkgreen);
+  transition:all 1s ease-in-out;
 }
 
 @-webkit-keyframes slide {
@@ -252,4 +261,8 @@ hehe {
 
 * .dark {
   background:#2b2b2b!important;
+}
+
+.e {
+  transition:all .25s ease-in-out!important;
 }
