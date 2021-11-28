@@ -103,6 +103,11 @@ setInterval(function(){
           } else {
             
             for (i = 0;i < data.item.artists.length;i++) {
+              fetch("https://api.spotify.com/v1/artists/" + data.item.artists[i].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
+                .then(res => res.json())
+                .then(images => {
+                  $('.artists-name').append(`<div class="chip"><img src="${images.images[0].url}">${data.item.artists[i].id}</div>&nbsp;`)
+                })
               $('.album').one('DOMSubtreeModified', function(){
                 document.querySelectorAll('span')[4].innerHTML = "";
                 document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
@@ -111,7 +116,7 @@ setInterval(function(){
                 document.querySelectorAll('span')[4].innerHTML = "";
                 document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
               });
-              $('.artists-name').append(`<div class="chip">${data.item.artists[i].name}</div>&nbsp;`)
+              
               var all = all + ', ' + data.item.artists[i].name
               document.title = `Now Playing: ${data.item.name} by ${all.replace('undefined,', '')} | SpotiPlayer`
               if (i == data.item.artists.length - 1) {
