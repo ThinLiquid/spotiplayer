@@ -216,6 +216,7 @@ a:hover {
 .card{
   --lightgreen:green;
   --darkgreen:palegreen;
+  transition:all .25s ease-in-out;
   background-color: rgba(0,0,0,23%)!important;
 }
 
@@ -231,6 +232,7 @@ hehe {
   animation-name: border;
   animation-duration:0.5s;
   animation-iteration-count:infinite;
+  transform:scale(1.1);
 }
 
 * .progress {
