@@ -88,7 +88,7 @@ setInterval(function(){
           }
         } else {
           toDataUrl(data.item.album.images[0].url, function(data2) {
-            document.body.setAttribute("style", `background:url(${data2})`)
+            document.body.setAttribute("style", `background:url(${data2}) no-repeat center center fixed; background-size: cover;`)
             document.querySelector('.album').setAttribute('src', data2)
           })
           document.querySelector('.song-name').innerText = data.item.name
