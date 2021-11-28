@@ -98,32 +98,11 @@ setInterval(function(){
               .then(response => response.json())
               .then(data2 => {
                 $('.artists-name').html(`<div class="chip"><img src="${data2.images[0].url}">${data.item.artists[data.item.artists.length - 1].name}</div>`)
-                document.title = `Now Playing: ${data.item.name} by ${data.item.artists[data.item.artists.length - 1].name} | SpotiPlayer`
+                document.title = `Now Playing: ${data.item.name} by ${data.item.artists[0].name} | SpotiPlayer`
               })
           } else {
             
             for (i = 0;i < data.item.artists.length;i++) {
-
-              fetch("https://api.spotify.com/v1/artists/" + data.item.artists[i].id, { method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
-                .then(res => res.json())
-                .then(images => {
-                  fetch('https://api.spotify.com/v1/me/player/currently-playing?market=GB',{ method: 'get', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getParameterByName('access_token') }})
-                  .then(response => response.json())
-                  .then(data3 => {
-                    document.querySelector(".artists-name").innerHTML += `<div class="chip"><img src="${images.images[0].url}">${data.item.artists[i].name}</div>`
-                    if (document.querySelectorAll(".chip").length == data.item.artists.length) {
-                      document.querySelector(".artists-name").removeAttribute("class")
-                return;
-              }
-                  })
-                })
-              
-              
-              $('.song-name').one('DOMSubtreeModified', function(){
-                document.querySelectorAll('span')[4].innerHTML = "";
-                document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
-              });
-              
               var all = all + ', ' + data.item.artists[i].name
               document.title = `Now Playing: ${data.item.name} by ${all.replace('undefined,', '')} | SpotiPlayer`
             }
@@ -374,3 +353,7 @@ const pSBC=(p,c0,c1,l)=>{
 	else return"#"+(4294967296+r*16777216+g*65536+b*256+(f?m(a*255):0)).toString(16).slice(1,f?undefined:-2)
 
 }
+$('.song-name').one('DOMSubtreeModified', function(){
+                document.querySelectorAll('span')[4].innerHTML = "";
+                document.querySelectorAll('span')[4].setAttribute('class', 'artists-name')
+              });
