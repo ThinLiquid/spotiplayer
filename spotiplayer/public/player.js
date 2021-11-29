@@ -21,7 +21,9 @@ setInterval(function() {
       return response.json();
     })
     .catch(function(error) {
-      window.location.href = `/?error=true&status=${error}&code=${window.wait}&ln=${error.lineNumber}`;
+      if (!window.wait == 204) {
+        window.location.href = `/?error=true&status=${error}&code=${window.wait}&ln=${error.lineNumber}`;
+      }
     });
 }, 1000);
 
@@ -278,18 +280,6 @@ function millis3(millis) {
   var seconds = ((millis % 60000) / 1000).toFixed(0);
   return minutes + "." + (seconds < 10 ? "0" : "") + seconds;
 }
-
-/*
-------------------------------------------------
-TILT
-------------------------------------------------
-*/
-
-$(".album").tilt({
-  glare: true,
-  maxGlare: 0.5,
-  minGlare: 0.5
-});
 
 /*
 ------------------------------------------------
