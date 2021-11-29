@@ -55,9 +55,19 @@ body {
   margin-left:-45vw;
 }
 
-@media only screen and (max-width: 600px) { 
+@media only screen and (max-width: 800px) { 
   #login-page {
     margin-left:0;
+  }
+  
+  .logo {
+    display:none;
+  }
+}
+
+@media only screen and (max-height: 100px) { 
+  .logo {
+    display:none;
   }
 }
 
@@ -326,5 +336,8 @@ a{
 
 .logo {
   position:fixed;
-  z-index:2;
+  z-index:5;
+  top:30;
+  left:30;
+  filter:contrast(0) brightness(1.4);
 }
