@@ -24,12 +24,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
   </head>
-  <body class="green lighten-2">
+  <body>
     <div class="blur" style="user-select:none;"></div>
-    <div style="user-select:none;" id="overlay">
-      <inputer style="postition:fixed;top:20px;z-index:3!important;width:600px;"><input style="margin-left:-60px;" onkeyup="enter()" type="search"></inputer>
-      <results></results>
-    </div>
+    <div class="gradient" style="user-select:none;"></div>
     <span id="lolza">
     <span style="position: relative;">
       <div style="padding-left:15%;" id="slide">
@@ -61,9 +58,3 @@
       </span>
   </body>
 </html>
-
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large green primary">
-    <i onclick="searcher()" class="large material-icons">search</i>
-  </a>
-</div>

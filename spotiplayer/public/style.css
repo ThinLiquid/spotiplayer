@@ -4,18 +4,17 @@
   --darkgreen:palegreen;
 }
 
-body, html {
+html {
   height: 100%;
   font-family: Spotify Circular;
   overflow:none;
-  background-size: cover!important;
-  background:#1DB954;
-  
-}
-
-html {
   display: table;
   margin: auto;
+}
+
+body {
+  background-size: cover!important;
+  background:#1DB954;
 }
 
 canvas {

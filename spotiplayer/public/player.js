@@ -173,13 +173,17 @@ setInterval(function() {
               .then(response => response.json())
               .then(data2 => {
                 $(".artists-name").html(
-                  `<div class="chip"><img src="${data2.images[0].url}">${data.item.artists[data.item.artists.length - 1].name}</div>`
+                  `${data.item.artists[data.item.artists.length - 1].name}`
                 );
                 document.title = `Now Playing: ${data.item.name} by ${data.item.artists[0].name} | SpotiPlayer`;
               });
           } else {
             for (i = 0; i < data.item.artists.length; i++) {
               var all = all + ", " + data.item.artists[i].name;
+              $(".artists-name").html(all.replace(
+                "undefined,",
+                ""
+              ))
               document.title = `Now Playing: ${data.item.name} by ${all.replace(
                 "undefined,",
                 ""
@@ -399,15 +403,15 @@ setInterval(function() {
       );
   }
   try {
-    for (i = 0; i < document.querySelectorAll(":root").length; i++) {
+    for (i = 0; i < document.querySelectorAll("*").length; i++) {
       document
-        .querySelectorAll(":root")
+        .querySelectorAll("*")
         [i].style.setProperty(
           "--lightgreen",
           pSBC(0.3, "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")")
         );
       document
-        .querySelectorAll(":root")
+        .querySelectorAll("*")
         [i].style.setProperty(
           "--darkgreen",
           "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")"
