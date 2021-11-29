@@ -65,7 +65,7 @@ body {
   }
 }
 
-@media only screen and (max-height: 100px) { 
+@media only screen and (max-height: 150px) { 
   .logo {
     display:none;
   }
@@ -340,4 +340,17 @@ a{
   top:30;
   left:30;
   filter:contrast(0) brightness(1.4);
+}
+
+.devicename {
+  color:var(--lightgreen);
+  position:fixed;
+  top:35;
+  left:95;
+}
+
+#device {
+  position:fixed;
+  top:55;
+  left:95;
 }
