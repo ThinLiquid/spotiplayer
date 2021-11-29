@@ -62,30 +62,6 @@ body {
   z-index:10!important;
 }
 
-.input-field .prefix.active {
-  color: rgba(0,0,0,0) !important;
-}
-
-* inputer input{
-  border-bottom:none!important;
-  background:white!important;
-  padding-left:20px!important;
-  padding-right:20px!important;
-  height:45px!important;
-  border-radius:30px!important;
-}
-
-* inputer {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 10%;
-}
-
-* inputer input::after {
-  content:'lol';
-}
-
 @keyframes example {
   0% {box-shadow: 0 0 0px green;}
   25% {box-shadow: 0 0 0px green;}
@@ -193,48 +169,8 @@ code {
   max-width:800px!important;
 }
 
-canvas {
-  z-index:0;
-  position:fixed;
-  width:100%;
-  height:100%;
-  top:50%;
-  left:40%;
-}
-
 a:hover {
   cursor:pointer;
-}
-
-#overlay {
-  padding:20px;
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-}
-
-* #overlay{
-  overflow:scroll!important;
-}
-
-#overlay .card {
-  width:50%;
-  margin: auto;
-  padding: 10px;
-}
-
-.card:hover {
-  background-color: rgba(255, 255, 255, .15);
-  background-size:1000000px;
-  backdrop-filter: blur(10px);
 }
 
 @keyframes border {
@@ -245,34 +181,6 @@ a:hover {
 .card{
   transition:all .25s ease-in-out;
   background-color: rgba(0,0,0,23%)!important;
-}
-
-* .card a:hover {
-  color:white!important;
-}
-
-hehe {
-  padding:10px;
-}
-
-.card:hover {
-  animation-name: border;
-  animation-duration:0.5s;
-  animation-iteration-count:infinite;
-  transform:scale(1.1);
-}
-
-* .progress {
-  margin: auto!important;
-  width:10px;
-}
-
-* .card {
-  transform-style: preserve-3d!important;
-}
-
-* .card a {
-  transform: translateZ(20px)!important;
 }
 
 .e {
@@ -356,7 +264,17 @@ text-overflow: ellipsis;
 .cont {
   float:right;
   position:fixed;
-  
+  padding-left:20px;
+}
+
+.e {
+  horizontal-align:middle;
+}
+
+.vruh {
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
 }
 
 @media only screen and (max-width: 800px) { 
@@ -374,11 +292,26 @@ text-overflow: ellipsis;
   
   .cont {
     float:none;
+    position:relative;
+    padding-left:0px;
+  }
+  
+  .devicename, #device {
+    display:none;
+  }
+  
+  .ye {
+    width:50vh;
+    margin-left:-15vh;
   }
 }
 
 @media only screen and (max-height: 150px) { 
   .logo {
+    display:none;
+  }
+  
+  .devicename, #device {
     display:none;
   }
 }
