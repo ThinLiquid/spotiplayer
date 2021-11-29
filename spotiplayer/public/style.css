@@ -1,12 +1,15 @@
 * {
   transition:all .5s ease-in-out;
+  --lightgreen:green;
+  --darkgreen:palegreen;
 }
 
 body, html {
   height: 100%;
-  font-family: Roboto;
+  font-family: Spotify Circular;
   overflow:none;
   background-size: cover!important;
+  background:#1DB954;
 }
 
 html {
@@ -35,7 +38,6 @@ br, .material-icons {
 body {
   display: table-cell;
   vertical-align: middle;
-  background: #4ECDC4;
 }
 
 #login-page {
@@ -225,8 +227,6 @@ a:hover {
 }
 
 .card{
-  --lightgreen:green;
-  --darkgreen:palegreen;
   transition:all .25s ease-in-out;
   background-color: rgba(0,0,0,23%)!important;
 }
@@ -265,4 +265,43 @@ hehe {
 
 .e {
   transition:all .25s ease-in-out!important;
+}
+
+@font-face {
+  font-family:Spotify Circular;
+  font-weight:800;
+  src: url(https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FCircularSpUIv3T-Bold.woff2?v=1638197009584);
+}
+
+@font-face {
+  font-family:Spotify Circular;
+  font-weight:900;
+  src: url(https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FCircularSpUIv3T-Black.woff2?v=1638197009584);
+}
+
+@font-face {
+  font-family:Spotify Circular;
+  font-weight:300;
+  src: url(https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FCircularSpUIv3T-Light.woff2?v=1638197009584);
+}
+
+@font-face {
+  font-family:Spotify Circular;
+  font-weight:400;
+  src: url(https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FCircularSpUIv3T-Book.woff2?v=1638197009584);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight:900;
+  font-size:40px;
+  margin:0;
+}
+
+p {
+  margin:10px;
+}
+
+a{
+  text-decoration:none;
+  color:var(--darkgreen);
 }
