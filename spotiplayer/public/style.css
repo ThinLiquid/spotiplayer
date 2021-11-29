@@ -275,6 +275,8 @@ text-overflow: ellipsis;
   margin-left: auto;
   margin-right: auto;
   display:block;
+  position:fixed;
+  left:45vw;
 }
 
 @media only screen and (max-width: 800px) { 
@@ -304,6 +306,13 @@ text-overflow: ellipsis;
     width:50vh;
     margin-left:-15vh;
   }
+  
+  .vruh {
+    margin-left: 0;
+    margin-right: 0;
+    display:block;
+    position:static;
+  }
 }
 
 @media only screen and (max-height: 150px) { 
@@ -315,3 +324,31 @@ text-overflow: ellipsis;
     display:none;
   }
 }
+
+.progress {
+      display:inline;
+      justify-content: space-between;
+      align-items: center;
+      width: 380px;
+      margin: 0;
+    }
+
+    .progress-bar {
+      position: relative;
+      width: 70%;
+      height: 5px;
+      background-color: #eee;
+      vertical-align: 2px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .now {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      height: 5px;
+      width: 70%;
+      background: #31c27c;
+      border-radius: 3px;
+    }

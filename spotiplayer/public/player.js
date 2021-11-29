@@ -4,6 +4,11 @@ ERROR HANDLING
 ------------------------------------------------
 */
 
+const start = document.querySelector('.start')
+  const end = document.querySelector('.end')
+  const progressBar = document.querySelector('.progress-bar')
+  const now = document.querySelector('.now')
+
 setInterval(function() {
   fetch("https://api.spotify.com/v1/me/player/currently-playing?market=GB", {
     method: "get",
@@ -583,3 +588,20 @@ $(".song-name").one("DOMSubtreeModified", function() {
   document.querySelectorAll("span")[4].innerHTML = "";
   document.querySelectorAll("span")[4].setAttribute("class", "artists-name");
 });
+
+    end.innerHTML = millis(audio.duration)
+    start.innerHTML = millis(audio.currentTime)
+
+  /*progressBar.addEventListener('click', function (event) {
+    let coordStart = this.getBoundingClientRect().left
+    let coordEnd = event.pageX
+    let p = (coordEnd - coordStart) / this.offsetWidth
+    now.style.width = p.toFixed(3) * 100 + '%'
+
+    audio.currentTime = p * audio.duration
+    audio.play()
+  })*/
+
+  setInterval(() => {
+    now.style.width = audio.duration_ms / audio.duration.toFixed(3) * 100 + '%'
+  }, 1000)
