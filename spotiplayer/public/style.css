@@ -341,17 +341,22 @@ a{
   left:95;
 }
 
-#album-img {
-  display: flex;
-  flex: 1;
+.album, #album-img {
+  display:inline;
 }
 
-.album {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
+.song-name {
   display: -webkit-box;
-  -webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.cont {
+  float:right;
+  position:fixed;
+  
 }
 
 @media only screen and (max-width: 800px) { 
@@ -365,6 +370,10 @@ a{
   
   .album {
     width:50vh;
+  }
+  
+  .cont {
+    float:none;
   }
 }
 
