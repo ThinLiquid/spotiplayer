@@ -149,6 +149,31 @@ setInterval(function() {
           if (data.is_playing != true) {
             $(".icons").text("play_arrow");
             document.querySelector(".icons").setAttribute("onclick", "play()");
+            var rgb = getAverageRGB(document.querySelector(".album"));
+  for (i = 0; i < document.querySelectorAll(".primary").length; i++) {
+    document
+      .querySelectorAll(".primary")
+      [i].setAttribute(
+        "style",
+        "background:rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")!important"
+      );
+  }
+  try {
+    for (i = 0; i < document.querySelectorAll("*").length; i++) {
+      document
+        .querySelectorAll("*")
+        [i].style.setProperty(
+          "--lightgreen",
+          pSBC(0.3, "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")")
+        );
+      document
+        .querySelectorAll("*")
+        [i].style.setProperty(
+          "--darkgreen",
+          "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")"
+        );
+    }
+  } catch (e) {}
           } else {
             $(".icons").text("pause");
             document.querySelector(".icons").setAttribute("onclick", "pause()");
@@ -409,34 +434,6 @@ function searcher() {
     document.querySelector("#overlay").style.display = "block";
   }
 }
-
-setInterval(function() {
-  var rgb = getAverageRGB(document.querySelector(".album"));
-  for (i = 0; i < document.querySelectorAll(".primary").length; i++) {
-    document
-      .querySelectorAll(".primary")
-      [i].setAttribute(
-        "style",
-        "background:rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")!important"
-      );
-  }
-  try {
-    for (i = 0; i < document.querySelectorAll("*").length; i++) {
-      document
-        .querySelectorAll("*")
-        [i].style.setProperty(
-          "--lightgreen",
-          pSBC(0.3, "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")")
-        );
-      document
-        .querySelectorAll("*")
-        [i].style.setProperty(
-          "--darkgreen",
-          "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")"
-        );
-    }
-  } catch (e) {}
-});
 
 function toDataUrl(url, callback) {
   var xhr = new XMLHttpRequest();

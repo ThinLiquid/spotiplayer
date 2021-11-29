@@ -53,7 +53,8 @@ body {
 
 #login-page {
   color: white;
-  margin-left: -45vw;
+  margin-left: -55vw;
+  margin-right: -20vw;
 }
 
 #login-page > div > span {
@@ -304,7 +305,7 @@ a {
 
 @media only screen and (max-width: 800px) {
   #login-page {
-    margin-left: 0;
+    margin-left: -10vw;
   }
 
   .logo {
