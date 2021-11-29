@@ -279,6 +279,11 @@ text-overflow: ellipsis;
   left:45vw;
 }
 
+.no {
+  width:100vw;
+  margin-left:21vw;
+}
+
 @media only screen and (max-width: 800px) { 
   #login-page {
     margin-left:0;
@@ -304,7 +309,11 @@ text-overflow: ellipsis;
   
   .ye {
     width:40vw;
-    margin-left:-15vh;
+    margin-left:-15vw;
+  }
+  
+  .no {
+    width:40vw!important;
   }
   
   .song-name {
@@ -333,7 +342,7 @@ text-overflow: ellipsis;
       display:inline;
       justify-content: space-between;
       align-items: center;
-      width:150%;
+      width: calc(max-content - 20vw);
       margin: 0;
     }
 
