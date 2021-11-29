@@ -198,7 +198,12 @@ setInterval(function() {
 
           $(".progresser").text(millis(data.progress_ms));
           $(".progresser-alt").text(millis(data.item.duration_ms));
+          
+          //alert(data.progress_ms / data.item.duration_ms.toFixed(3) * 100)
+          
+          document.querySelector('.now').style.width = data.progress_ms / data.item.duration_ms.toFixed(3) * 100 + '%';
 
+          
           if (data.is_playing != true) {
             $(".icons").text("play_arrow");
             document.querySelector(".icons").setAttribute("onclick", "play()");
@@ -588,11 +593,11 @@ $(".song-name").one("DOMSubtreeModified", function() {
   document.querySelectorAll("span")[4].innerHTML = "";
   document.querySelectorAll("span")[4].setAttribute("class", "artists-name");
 });
-
+/*
     end.innerHTML = millis(audio.duration)
     start.innerHTML = millis(audio.currentTime)
 
-  /*progressBar.addEventListener('click', function (event) {
+  progressBar.addEventListener('click', function (event) {
     let coordStart = this.getBoundingClientRect().left
     let coordEnd = event.pageX
     let p = (coordEnd - coordStart) / this.offsetWidth
@@ -602,6 +607,4 @@ $(".song-name").one("DOMSubtreeModified", function() {
     audio.play()
   })*/
 
-  setInterval(() => {
-    now.style.width = audio.duration_ms / audio.duration.toFixed(3) * 100 + '%'
-  }, 1000)
+  

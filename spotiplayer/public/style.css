@@ -289,7 +289,7 @@ text-overflow: ellipsis;
   }
   
   .album {
-    width:50vh;
+    width:40vw;
   }
   
   .cont {
@@ -303,8 +303,12 @@ text-overflow: ellipsis;
   }
   
   .ye {
-    width:50vh;
+    width:40vw;
     margin-left:-15vh;
+  }
+  
+  .song-name {
+    width:40vw;
   }
   
   .vruh {
@@ -329,13 +333,14 @@ text-overflow: ellipsis;
       display:inline;
       justify-content: space-between;
       align-items: center;
-      width: 380px;
+      width:150%;
       margin: 0;
     }
 
     .progress-bar {
       position: relative;
-      width: 70%;
+      display:inline-block;
+      width:100%;
       height: 5px;
       background-color: #eee;
       vertical-align: 2px;
@@ -348,7 +353,6 @@ text-overflow: ellipsis;
       left: 0;
       display: inline-block;
       height: 5px;
-      width: 70%;
       background: #31c27c;
       border-radius: 3px;
     }
