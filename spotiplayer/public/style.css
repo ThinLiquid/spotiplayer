@@ -55,21 +55,7 @@ body {
   margin-left:-45vw;
 }
 
-@media only screen and (max-width: 800px) { 
-  #login-page {
-    margin-left:0;
-  }
-  
-  .logo {
-    display:none;
-  }
-}
 
-@media only screen and (max-height: 150px) { 
-  .logo {
-    display:none;
-  }
-}
 
 #login-page > div > span {
   position:relative;
@@ -353,4 +339,37 @@ a{
   position:fixed;
   top:55;
   left:95;
+}
+
+#album-img {
+  display: flex;
+  flex: 1;
+}
+
+.album {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+@media only screen and (max-width: 800px) { 
+  #login-page {
+    margin-left:0;
+  }
+  
+  .logo {
+    display:none;
+  }
+  
+  .album {
+    width:50vh;
+  }
+}
+
+@media only screen and (max-height: 150px) { 
+  .logo {
+    display:none;
+  }
 }
