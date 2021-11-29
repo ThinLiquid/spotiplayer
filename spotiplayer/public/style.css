@@ -233,11 +233,11 @@ a{
   z-index:5;
   top:30;
   left:30;
-  filter:contrast(0) brightness(1.4);
+  filter: contrast(0) brightness(2);
 }
 
 .devicename {
-  color:var(--lightgreen);
+  color:white;
   position:fixed;
   top:35;
   left:95;
@@ -247,6 +247,7 @@ a{
   position:fixed;
   top:55;
   left:95;
+  color: var(--darkgreen);
 }
 
 .album, #album-img {
@@ -309,11 +310,12 @@ text-overflow: ellipsis;
   
   .ye {
     width:40vw;
-    margin-left:-15vw;
+    margin-left:-30vw;
   }
   
   .no {
     width:40vw!important;
+    
   }
   
   .song-name {
@@ -325,6 +327,10 @@ text-overflow: ellipsis;
     margin-right: 0;
     display:block;
     position:static;
+  }
+  
+  .progress, .progress-bar {
+    width:28vw!important;
   }
 }
 
@@ -340,16 +346,16 @@ text-overflow: ellipsis;
 
 .progress {
       display:inline;
+  margin-top:50px;
       justify-content: space-between;
       align-items: center;
-      width: calc(max-content - 20vw);
-      margin: 0;
+      width: 100vw;
     }
 
     .progress-bar {
       position: relative;
       display:inline-block;
-      width:100%;
+      width: 74.5vw;
       height: 5px;
       background-color: #eee;
       vertical-align: 2px;
@@ -362,6 +368,6 @@ text-overflow: ellipsis;
       left: 0;
       display: inline-block;
       height: 5px;
-      background: #31c27c;
+      background: var(--darkgreen);
       border-radius: 3px;
     }
