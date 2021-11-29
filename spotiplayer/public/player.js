@@ -203,6 +203,14 @@ setInterval(function() {
           
           document.querySelector('.now').style.width = data.progress_ms / data.item.duration_ms.toFixed(3) * 100 + '%';
 
+          progressBar.addEventListener('click', function (event) {
+            let coordStart = this.getBoundingClientRect().left
+            let coordEnd = event.pageX
+            let p = (coordEnd - coordStart) / this.offsetWidth
+            now.style.width = p.toFixed(3) * 100 + '%'
+
+            fetch("https://api.spotify.com/v1/me/player/seek?position_ms=" + p * data.progress_ms, { headers: { Authorization: getParameterByName("access_token") }})
+          })
           
           if (data.is_playing != true) {
             $(".icons").text("play_arrow");
