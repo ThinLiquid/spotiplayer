@@ -21,7 +21,7 @@ setInterval(function() {
       return response.json();
     })
     .catch(function(error) {
-      window.location.href = `/?error=true&status=${error}&code=${window.wait}`;
+      window.location.href = `/?error=true&status=${error}&code=${window.wait}&ln=${error.lineNumber}`;
     });
 }, 1000);
 
