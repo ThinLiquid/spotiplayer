@@ -51,8 +51,14 @@ body {
 }
 
 #login-page {
-  width: 1000px;
   color:white;
+  margin-left:-45vw;
+}
+
+@media only screen and (max-width: 600px) { 
+  #login-page {
+    margin-left:0;
+  }
 }
 
 #login-page > div > span {
@@ -316,4 +322,9 @@ p {
 a{
   text-decoration:none;
   color:var(--darkgreen);
+}
+
+.logo {
+  position:fixed;
+  z-index:2;
 }
