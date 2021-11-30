@@ -40,6 +40,9 @@
   </head>
   <body>
     <div class="gradient"></div>
+    <div class="note">
+      You're using <b>Spotify Free</b>.
+    </div>
     <div class="top-bar">
       <button onclick="fullScreen();" class="material-icons fullscreen">
         fullscreen
@@ -57,8 +60,8 @@
       </div>
     </div>
     <div style="padding-left:15%;position: relative;" class="container">
-      <div id="login-page" class="inner-container">
-        <div class="no" style="padding:30px;width:80vw;">
+      <div class="inner-container">
+        <div class="inner-cont2" style="padding:30px;width:80vw;">
           <span style="width:100%;">
             <span class="bottom">
               <span id="album-metadata">
@@ -95,20 +98,17 @@
               <br />
               <center style="user-select:none;">
                 <a
-                  style="font-size:30px;color:white;vertical-align: middle;user-select:none;"
                   onclick="prev()"
-                  class="material-icons control-icon"
+                  class="material-icons control-icon prev"
                   >skip_previous</a
                 >
                 <a
-                  style="font-size:50px;color:white;vertical-align: middle;user-select:none;"
-                  class="material-icons icons control-icon"
+                  class="material-icons icons control-icon pause"
                   >pause</a
                 >
                 <a
-                  style="font-size:30px;color:white;vertical-align: middle;user-select:none;"
                   onclick="next()"
-                  class="material-icons control-icon"
+                  class="material-icons control-icon next"
                   >skip_next</a
                 >
               </center>

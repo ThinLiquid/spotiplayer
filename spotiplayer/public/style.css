@@ -100,6 +100,7 @@ a:hover {
 .control-icon {
   transition: all 0.25s ease-in-out !important;
   horizontal-align: middle;
+  font-size:30px;color:white;vertical-align: middle;user-select:none;
 }
 
 .control-icon:hover {
@@ -201,7 +202,7 @@ center {
   left: 45vw;
 }
 
-.no {
+.inner-cont2 {
   width: 100vw;
   margin-left: 21vw;
 }
@@ -215,7 +216,7 @@ center {
   .inner-container {
     margin-left: -10vw;
     text-align:center;
-    vertical-align:middle;
+    margin-top:-10vw;
   }
   
   .inner-container.no-margin {
@@ -228,7 +229,7 @@ center {
     position:static;
   }
 
-  .album, .container, .song-name, .no, .progress, .progress-bar {
+  .album, .container, .song-name, .inner-cont2, .progress, .progress-bar {
     width: 40vw!important;
   }
 
@@ -352,9 +353,7 @@ button {
 .note {
   position:absolute;
   top:30;
-  margin-left:auto;
-  margin-right:auto;
-  margin-left:4.5vw;
+  right:90;
   z-index:3;
   background:white;
   padding:10px;
@@ -364,6 +363,6 @@ button {
 }
 
 .pause {
-  
+  font-size:50px;
 }
 
