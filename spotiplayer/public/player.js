@@ -4,10 +4,10 @@ ERROR HANDLING
 ------------------------------------------------
 */
 
-const start = document.querySelector('.start')
-  const end = document.querySelector('.end')
-  const progressBar = document.querySelector('.progress-bar')
-  const now = document.querySelector('.now')
+const start = document.querySelector(".start");
+const end = document.querySelector(".end");
+const progressBar = document.querySelector(".progress-bar");
+const now = document.querySelector(".now");
 
 setInterval(function() {
   fetch("https://api.spotify.com/v1/me/player/currently-playing?market=GB", {
@@ -42,34 +42,6 @@ DETECT ICON
 ------------------------------------------------
 */
 
-setInterval(function() {
-  fetch("https://api.spotify.com/v1/me/player", {
-  method: "get",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + getParameterByName("access_token"),
-    "Retry-After": 0
-  }
-})
-  .then(response => response.json())
-  .then(data2 => {
-    document.querySelector("#device").innerText = data2.device.name;
-    if (data2.device.type == "Tablet") {
-      document.querySelector(".devicer").innerHTML = "tablet";
-    } else if (data2.device.type == "Computer") {
-      document.querySelector(".material-icons.devicer").innerHTML = "computer";
-    } else if (data2.device.type == "SpotiPlayer") {
-      document.querySelector(
-        "#spotiplayer"
-      ).innerHTML = `<img src="https://i.imgur.com/XmrTgBt.png" width="20em">`;
-    } else if (data2.device.type == "TV") {
-      document.querySelector(".material-icons.devicer").innerHTML = "tv";
-    } else if (data2.device.type == "Phone") {
-      document.querySelector(".material-icons.devicer").innerHTML = "phone";
-    }
-  });
-})
-
 /*
 ------------------------------------------------
 PLAYER
@@ -87,6 +59,18 @@ setInterval(function() {
     .then(response => response.json())
     .then(data => {
       try {
+        fetch("https://api.spotify.com/v1/me/player", {
+          method: "get",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + getParameterByName("access_token"),
+            "Retry-After": 0
+          }
+        })
+          .then(response => response.json())
+          .then(data2 => {
+            document.querySelector("#device").innerText = data2.device.name;
+          });
         if (data.currently_playing_type === "ad") {
           document.querySelector(".song-name").innerText = "Advertisment";
           toDataUrl(
@@ -97,40 +81,45 @@ setInterval(function() {
           );
           document.querySelector(".song-artists").innerHTML = "";
           $(".progresser").text("0:00");
+          
 
           if (data.is_playing != true) {
             $(".icons").text("play_arrow");
             document.querySelector(".icons").setAttribute("onclick", "play()");
-            var rgb = getAverageRGB(document.querySelector(".album"));
-  for (i = 0; i < document.querySelectorAll(".primary").length; i++) {
-    document
-      .querySelectorAll(".primary")
-      [i].setAttribute(
-        "style",
-        "background:rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")!important"
-      );
-  }
-  try {
-    for (i = 0; i < document.querySelectorAll("*").length; i++) {
-      document
-        .querySelectorAll("*")
-        [i].style.setProperty(
-          "--lightgreen",
-          pSBC(0.3, "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")")
-        );
-      document
-        .querySelectorAll("*")
-        [i].style.setProperty(
-          "--darkgreen",
-          "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")"
-        );
-    }
-  } catch (e) {}
           } else {
             $(".icons").text("pause");
             document.querySelector(".icons").setAttribute("onclick", "pause()");
           }
         } else {
+          var rgb = getAverageRGB(document.querySelector(".album"));
+            for (i = 0; i < document.querySelectorAll(".primary").length; i++) {
+              document
+                .querySelectorAll(".primary")
+                [i].setAttribute(
+                  "style",
+                  "background:rgb(" +
+                    rgb.r +
+                    "," +
+                    rgb.g +
+                    "," +
+                    rgb.b +
+                    ")!important"
+                );
+            }
+              for (i = 0; i < document.querySelectorAll("*").length; i++) {
+                document
+                  .querySelectorAll("*")
+                  [i].style.setProperty(
+                    "--lightgreen",
+                    pSBC(0.3, "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")")
+                  );
+                document
+                  .querySelectorAll("*")
+                  [i].style.setProperty(
+                    "--darkgreen",
+                    "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")"
+                  );
+              }
           toDataUrl(data.item.album.images[0].url, function(data2) {
             document.body.setAttribute(
               "style",
@@ -162,10 +151,7 @@ setInterval(function() {
           } else {
             for (i = 0; i < data.item.artists.length; i++) {
               var all = all + ", " + data.item.artists[i].name;
-              $(".artists-name").html(all.replace(
-                "undefined,",
-                ""
-              ))
+              $(".artists-name").html(all.replace("undefined,", ""));
               document.title = `Now Playing: ${data.item.name} by ${all.replace(
                 "undefined,",
                 ""
@@ -175,20 +161,25 @@ setInterval(function() {
 
           $(".progresser").text(millis(data.progress_ms));
           $(".progresser-alt").text(millis(data.item.duration_ms));
-          
+
           //alert(data.progress_ms / data.item.duration_ms.toFixed(3) * 100)
-          
-          document.querySelector('.now').style.width = data.progress_ms / data.item.duration_ms.toFixed(3) * 100 + '%';
 
-          progressBar.addEventListener('click', function (event) {
-            let coordStart = this.getBoundingClientRect().left
-            let coordEnd = event.pageX
-            let p = (coordEnd - coordStart) / this.offsetWidth
-            now.style.width = p.toFixed(3) * 100 + '%'
+          document.querySelector(".now").style.width =
+            (data.progress_ms / data.item.duration_ms.toFixed(3)) * 100 + "%";
 
-            fetch("https://api.spotify.com/v1/me/player/seek?position_ms=" + p * data.progress_ms, { headers: { Authorization: getParameterByName("access_token") }})
-          })
-          
+          progressBar.addEventListener("click", function(event) {
+            let coordStart = this.getBoundingClientRect().left;
+            let coordEnd = event.pageX;
+            let p = (coordEnd - coordStart) / this.offsetWidth;
+            now.style.width = p.toFixed(3) * 100 + "%";
+
+            fetch(
+              "https://api.spotify.com/v1/me/player/seek?position_ms=" +
+                p * data.progress_ms,
+              { headers: { Authorization: getParameterByName("access_token") } }
+            );
+          });
+
           if (data.is_playing != true) {
             $(".icons").text("play_arrow");
             document.querySelector(".icons").setAttribute("onclick", "play()");
