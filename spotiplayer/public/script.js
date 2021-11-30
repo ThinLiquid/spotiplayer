@@ -41,6 +41,7 @@ if (navigator.userAgent.includes('Chrome') == false) {
 
   if (error) {
     alertify.alert('There was an error during the authentication');
+    document.querySelector('.ajs-header').innerText = "SpotiPlayer Alert";
   } else {
     if (access_token) {
       try {

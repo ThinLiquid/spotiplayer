@@ -62,6 +62,15 @@ setInterval(function() {
     .then(response => response.json())
     .then(data => {
       try {
+        fetch("https://api.spotify.com/v1/me", {headers: {Authorization: getParameterByName()}})
+          .then(res => res.json())
+          .then(data => {
+            if (data.product == "premium") {
+              document.querySelector(".note").style.display = "none"
+            } else {
+              document.querySelector(".note").style.display = "block"
+            }
+        })
         fetch("https://api.spotify.com/v1/me/player", {
           method: "get",
           headers: {
