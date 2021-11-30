@@ -30,10 +30,10 @@ br,
   position: fixed;
   top: 0;
   left: 0;
-  backdrop-filter: blur(5vh);
+  backdrop-filter: blur(4vh);
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 1;
 }
 
 .gradient {
@@ -126,11 +126,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 * a.material-icons.e:hover {
   color: var(--darkgreen) !important;
-}
-
-*::selection {
-  background: var(--darkgreen);
-  transition: all 1s ease-in-out;
 }
 
 @-webkit-keyframes slide {
@@ -429,10 +424,24 @@ button {
   position:fixed;
   top:30;
   right:30;
-  background:var(--darkgreen);
+  background:transparent;
 }
 
 .bottom {
   position:relative;
   top:10vw;
+}
+
+.devicename,
+  #device {
+    z-index:2;
+  }
+
+#device {
+   color: var(--darkgreen)
+}
+
+*::selection {
+  background: var(--darkgreen);
+  transition: all 1s ease-in-out;
 }

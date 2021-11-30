@@ -42,7 +42,7 @@
     <div class="blur" style="user-select:none;"></div>
     <div class="gradient" style="user-select:none;"></div>
     <span id="lolza">
-      <button onclick="" class="material-icons dabtn">
+      <button onclick="fullScreen();" class="material-icons dabtn">
         fullscreen
       </button>
       <span class="devicename">PLAYING FROM</span><br /><span id="device"
@@ -130,15 +130,12 @@
   </body>
 </html>
 <script>
-  document.querySelector('html').onfullscreenchange = function() {
-    if (document.fullscreen == true) {
-      document.querySelector(".dabtn").setAttribute("onclick", "document.querySelector('html').exitFullscreen()");
-    } else {
-      document
-        .querySelector(".dabtn")
-        .setAttribute("onclick", "document.querySelector('html').requestFullscreen()");
-    }
-  };
   
-  document.querySelector('html').requestFullscreen();document.querySelector('.dabtn').setAttribute('onclick', 'document.querySelector(\'html`).exitFullscreen();document.querySelector(`.dabtn`).setAttribute(`onclick`, `document.querySelector(\'html\').requestFullscreen();`);');
+  function fullScreen() {
+    if (document.fullscreen == false) {
+      document.querySelector("html").requestFullscreen()
+    } else {
+      document.exitFullscreen()
+    }
+  }
 </script>
