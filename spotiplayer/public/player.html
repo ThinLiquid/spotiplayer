@@ -39,95 +39,84 @@
     />
   </head>
   <body>
-    <div class="gradient" style="user-select:none;"></div>
-    <span id="lolza">
-      <button onclick="fullScreen();" class="material-icons dabtn">
+    <div class="gradient"></div>
+    <div class="top-bar">
+      <button onclick="fullScreen();" class="material-icons fullscreen">
         fullscreen
       </button>
-      <div class="thed">
-        <span class="devicename">PLAYING FROM</span><br /><span id="device"
+      <div class="device-widget">
+        <span class="device-title">PLAYING FROM</span><br /><span
+          class="device-name"
           >Nowhere</span
-        >&nbsp;<span
-          style="vertical-align: middle;"
-          class="material-icons devicer"
-        ></span
-        ><span style="vertical-align: middle;" id="spotiplayer"></span>
-        <span
-          ><img
-            class="logo"
-            width="50px"
-            src="https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FXmrTgBt.png?v=1638204190713"
-        /></span>
+        >
+        <img
+          class="logo"
+          width="50px"
+          src="https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FXmrTgBt.png?v=1638204190713"
+        />
       </div>
-      <span style="position: relative;">
-        <div style="padding-left:15%;" class="ye">
-          <div id="login-page" class="ll">
-            <div class="no" style="padding:30px;width:80vw;">
-              <span style="width:100%;">
-                <span class="bottom">
-                  <span id="album-metadata">
-                    <span id="album-img">
-                      <img
-                        class="album"
-                        width="100vh"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRvYssDr398uR8OkHyOUvxjFIKh1OkrFnYmg&usqp=CAU"
-                        style="border-radius:0px!important;transition:all .5s ease-in-out;user-select:none;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
-                      />
-                    </span>
-                    <span class="cont">
-                      <h5 style="user-select:auto;" class="song-name">
-                        Not Playing
-                      </h5>
-                      <span
-                        style="display: inline;"
-                        class="artists-name"
-                      ></span>
-                    </span> </span
-                  ><br />
-                  <center class="vruh he">
-                    <span
-                      class="progresser"
-                      style="color:white;user-select:auto;"
-                      >0:00</span
-                    >/<span
-                      style="color:white;user-select:auto;"
-                      class="progresser-alt"
-                      >0:00</span
-                    >
-                  </center>
-                  <br />
-                  <span class="progress" style="margin-top:10px;">
-                    <span class="progress-bar">
-                      <div class="now"></div>
-                    </span>
-                  </span>
-                  <br />
-                  <center class="vruh" style="user-select:none;">
-                    <a
-                      style="font-size:30px;color:white;vertical-align: middle;user-select:none;"
-                      onclick="prev()"
-                      class="material-icons e"
-                      >skip_previous</a
-                    >
-                    <a
-                      style="font-size:50px;color:white;vertical-align: middle;user-select:none;"
-                      class="material-icons icons e"
-                      >pause</a
-                    >
-                    <a
-                      style="font-size:30px;color:white;vertical-align: middle;user-select:none;"
-                      onclick="next()"
-                      class="material-icons e"
-                      >skip_next</a
-                    >
-                  </center>
+    </div>
+    <div style="padding-left:15%;position: relative;" class="container">
+      <div id="login-page" class="inner-container">
+        <div class="no" style="padding:30px;width:80vw;">
+          <span style="width:100%;">
+            <span class="bottom">
+              <span id="album-metadata">
+                <span id="album-img">
+                  <img
+                    class="album"
+                    width="100vh"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRvYssDr398uR8OkHyOUvxjFIKh1OkrFnYmg&usqp=CAU"
+                    style="border-radius:0px!important;transition:all .5s ease-in-out;user-select:none;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                  />
+                </span>
+                <span class="cont">
+                  <h5 style="user-select:auto;" class="song-name">
+                    Not Playing
+                  </h5>
+                  <span style="display: inline;" class="artists-name"></span>
+                </span> </span
+              ><br />
+              <center class="vruh he">
+                <span class="progresser" style="color:white;user-select:auto;"
+                  >0:00</span
+                >/<span
+                  style="color:white;user-select:auto;"
+                  class="progresser-alt"
+                  >0:00</span
+                >
+              </center>
+              <br />
+              <span class="progress" style="margin-top:10px;">
+                <span class="progress-bar">
+                  <div class="now"></div>
                 </span>
               </span>
-            </div>
-          </div>
+              <br />
+              <center class="vruh" style="user-select:none;">
+                <a
+                  style="font-size:30px;color:white;vertical-align: middle;user-select:none;"
+                  onclick="prev()"
+                  class="material-icons e"
+                  >skip_previous</a
+                >
+                <a
+                  style="font-size:50px;color:white;vertical-align: middle;user-select:none;"
+                  class="material-icons icons e"
+                  >pause</a
+                >
+                <a
+                  style="font-size:30px;color:white;vertical-align: middle;user-select:none;"
+                  onclick="next()"
+                  class="material-icons e"
+                  >skip_next</a
+                >
+              </center>
+            </span>
+          </span>
         </div>
-      </span>
-    </span>
+      </div>
+    </div>
   </body>
 </html>
 <script>

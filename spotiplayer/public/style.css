@@ -35,6 +35,7 @@ br,
   width: 100vw;
   height: 100vh;
   z-index: 2;
+  user-select:none;
 }
 
 body {
@@ -42,7 +43,7 @@ body {
   vertical-align: middle;
 }
 
-#login-page {
+.inner-container {
   position:relative;
   z-index:5;
   color: white;
@@ -50,7 +51,7 @@ body {
   margin-right: -20vw;
 }
 
-#login-page > div > span {
+.inner-container > div > span {
   position: relative;
   z-index: 10 !important;
 }
@@ -241,14 +242,14 @@ a {
   filter: contrast(0) brightness(2);
 }
 
-.devicename {
+.device-title {
   color: white;
   position: fixed;
   top: 35;
   left: 95;
 }
 
-#device {
+.device-name {
   position: fixed;
   top: 55;
   left: 95;
@@ -291,17 +292,19 @@ a {
   margin-left: 21vw;
 }
 
+ * .inner-container.no-margin {
+    margin-left:0vw!important;
+    text-align:left!important;
+  }
+
 @media only screen and (max-width: 800px) {
-  #login-page {
+  .inner-container {
     margin-left: -10vw;
+    text-align:center;
   }
   
   .bottom {
     position:static;
-  }
-
-  .ll {
-    text-align:center;
   }
   
   .logo {
@@ -318,12 +321,12 @@ a {
     padding-left: 0px;
   }
 
-  .devicename,
-  #device {
+  .device-title,
+  .device-name {
     display: none;
   }
 
-  .ye {
+  .container {
     width: 40vw;
     margin-left: -30vw;
   }
@@ -362,8 +365,8 @@ a {
     display: none;
   }
 
-  .devicename,
-  #device {
+  .device-title,
+  .device-name {
     display: none;
   }
 }
@@ -413,7 +416,7 @@ button {
   }
 }
 
-.dabtn {
+.fullscreen {
   position:fixed;
   top:30;
   right:30;
@@ -426,12 +429,12 @@ button {
   top:10vw;
 }
 
-.devicename,
-  #device {
+.device-title,
+  .device-name {
     z-index:2;
   }
 
-#device {
+.device-name {
    color: var(--darkgreen)
 }
 
@@ -440,7 +443,7 @@ button {
   transition: all 1s ease-in-out;
 }
 
-.thed {
+.device-widget {
   background:rgba(0,0,0,0.5);
   top:20;
   left:20;
