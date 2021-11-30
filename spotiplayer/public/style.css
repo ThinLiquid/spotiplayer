@@ -216,9 +216,13 @@ center {
   }
 
   .inner-container {
-    margin-left: -10vw;
+    margin-left: -27vw;
     text-align: center;
-    margin-top: -10vw;
+    margin-top: -50vw;
+  }
+  
+  .note {
+    display:none!important;
   }
 
   .inner-container.no-margin {
