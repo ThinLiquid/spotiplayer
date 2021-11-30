@@ -306,9 +306,12 @@ a {
 @media only screen and (max-width: 800px) {
   #login-page {
     margin-left: -10vw;
-    text-align:center;
   }
 
+  .ll {
+    text-align:center;
+  }
+  
   .logo {
     display: none;
   }
@@ -414,5 +417,6 @@ button {
 @media only screen and (min-width: 800px) {
   .he {
     margin-left:15px;
+    margin-top:-10px;
   }
 }

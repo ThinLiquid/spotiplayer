@@ -38,56 +38,6 @@ if (getParameterByName("access_token") == null) {
 
 /*
 ------------------------------------------------
-SEARCH
-------------------------------------------------
-*/
-
-function search() {
-  $("results").html("");
-  var searchfor = document.querySelector("input").value;
-  try {
-    fetch(
-      "https://api.spotify.com/v1/search?q=" +
-        searchfor +
-        "&type=track&market=GB&limit=50",
-      {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + getParameterByName("access_token")
-        }
-      }
-    )
-      .then(response => response.json())
-      .then(data => {
-        for (i = 0; i < data.tracks.items.length - 1; i++) {
-          var all = data.tracks.items[i].name;
-          var all2 = data.tracks.items[i].id;
-          var all3 = data.tracks.items[i].album.images[0].url;
-          var duration = millis(data.tracks.items[i].duration_ms);
-          var all4 = data.tracks.items[i].preview_url;
-          for (a = 0; a < data.tracks.items[i].artists.length; a++) {
-            if (data.tracks.items[i].artists.length == 1) {
-              window.all = data.tracks.items[i].artists[a].name;
-            } else {
-              window.all =
-                " " + window.all + " • " + data.tracks.items[i].artists[a].name;
-              if (window.all.includes("  ") == true) {
-                window.all = window.all.replace("  • ", "");
-              }
-            }
-          }
-          $("results").append(
-            `<hehe><div class="card"><a style="color:white;" onclick="plays('${all2}')"><div class="card-content row"><div class="col s9"><h5>${all}</h5><br><p class="by">by: ${window.all}</p>${duration}<br><br><br><audio controls><source src="${all4}"></audio></div><div class="col s3"><img src="${all3}" width="100%"></div></a></div></hehe>`
-          );
-          window.all = "";
-        }
-      });
-  } catch (e) {}
-}
-
-/*
-------------------------------------------------
 DETECT ICON
 ------------------------------------------------
 */
@@ -318,18 +268,6 @@ function millis(millis) {
   return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 }
 
-function millis2(millis) {
-  var minutes = Math.floor(millis / 60000);
-  var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return minutes + "" + (seconds < 10 ? "0" : "") + seconds;
-}
-
-function millis3(millis) {
-  var minutes = Math.floor(millis / 60000);
-  var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return minutes + "." + (seconds < 10 ? "0" : "") + seconds;
-}
-
 /*
 ------------------------------------------------
 PLAY IN BROWSER
@@ -397,45 +335,9 @@ function lcm(a, b) {
 
 /*
 ------------------------------------------------
-BETA PLAY SONG
-------------------------------------------------
-*/
-
-function plays(id) {
-  alertify.alert("This feature is comming soon...<br>Song ID: " + id);
-  document.querySelector(".ajs-header").innerText = "SpotiPlayer Alert";
-  document
-    .querySelector(".ajs-ok")
-    .setAttribute(
-      "class",
-      document.querySelector(".ajs-ok").getAttribute("class") +
-        " waves-effect waves-dark"
-    );
-}
-
-function enter() {
-  search();
-}
-
-/*
-------------------------------------------------
 IDK
 ------------------------------------------------
 */
-
-document.addEventListener("keyup", function(e) {
-  if (e.code == "Escape") {
-    document.querySelector("#overlay").style.display = "none";
-  }
-});
-
-function searcher() {
-  if (document.querySelector("#overlay").style.display == "block") {
-    document.querySelector("#overlay").style.display = "none";
-  } else {
-    document.querySelector("#overlay").style.display = "block";
-  }
-}
 
 function toDataUrl(url, callback) {
   var xhr = new XMLHttpRequest();
@@ -596,22 +498,3 @@ const pSBC = (p, c0, c1, l) => {
         .slice(1, f ? undefined : -2)
     );
 };
-$(".song-name").one("DOMSubtreeModified", function() {
-  document.querySelectorAll("span")[4].innerHTML = "";
-  document.querySelectorAll("span")[4].setAttribute("class", "artists-name");
-});
-/*
-    end.innerHTML = millis(audio.duration)
-    start.innerHTML = millis(audio.currentTime)
-
-  progressBar.addEventListener('click', function (event) {
-    let coordStart = this.getBoundingClientRect().left
-    let coordEnd = event.pageX
-    let p = (coordEnd - coordStart) / this.offsetWidth
-    now.style.width = p.toFixed(3) * 100 + '%'
-
-    audio.currentTime = p * audio.duration
-    audio.play()
-  })*/
-
-  
