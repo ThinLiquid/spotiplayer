@@ -92,7 +92,8 @@ DETECT ICON
 ------------------------------------------------
 */
 
-fetch("https://api.spotify.com/v1/me/player", {
+setInterval(function() {
+  fetch("https://api.spotify.com/v1/me/player", {
   method: "get",
   headers: {
     "Content-Type": "application/json",
@@ -117,6 +118,7 @@ fetch("https://api.spotify.com/v1/me/player", {
       document.querySelector(".material-icons.devicer").innerHTML = "phone";
     }
   });
+})
 
 /*
 ------------------------------------------------

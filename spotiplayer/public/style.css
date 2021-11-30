@@ -306,6 +306,7 @@ a {
 @media only screen and (max-width: 800px) {
   #login-page {
     margin-left: -10vw;
+    text-align:center;
   }
 
   .logo {
@@ -342,6 +343,13 @@ a {
   }
 
   .vruh {
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+    position: static;
+  }
+  
+  .ed {
     margin-left: 0;
     margin-right: 0;
     display: block;
@@ -401,4 +409,10 @@ button {
   border-radius:7px;
   font-family:Spotify Circular;
   cursor:pointer;
+}
+
+@media only screen and (min-width: 800px) {
+  .he {
+    margin-left:15px;
+  }
 }
