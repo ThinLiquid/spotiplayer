@@ -215,6 +215,7 @@ center {
   .inner-container {
     margin-left: -10vw;
     text-align:center;
+    vertical-align:middle;
   }
   
   .inner-container.no-margin {
@@ -228,7 +229,7 @@ center {
   }
 
   .album, .container, .song-name, .no, .progress, .progress-bar {
-    width: 40vw;
+    width: 40vw!important;
   }
 
   .cont {
@@ -347,3 +348,22 @@ button {
   user-select:none;
   border-radius:50px;
 }
+
+.note {
+  position:absolute;
+  top:30;
+  margin-left:auto;
+  margin-right:auto;
+  margin-left:4.5vw;
+  z-index:3;
+  background:white;
+  padding:10px;
+  color:var(--darkgreen);
+  border-radius:5px;
+  user-select:none;
+}
+
+.pause {
+  
+}
+
