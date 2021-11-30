@@ -72,7 +72,7 @@ setInterval(function() {
         })
           .then(response => response.json())
           .then(data2 => {
-            document.querySelector("#device").innerText = data2.device.name;
+            document.querySelector(".device-name").innerText = data2.device.name;
           });
         if (data.currently_playing_type === "ad") {
           document.querySelector(".song-name").innerText = "Advertisment";
@@ -87,11 +87,11 @@ setInterval(function() {
           
 
           if (data.is_playing != true) {
-            $(".icons").text("play_arrow");
-            document.querySelector(".icons").setAttribute("onclick", "play()");
+            $(".pause").text("play_arrow");
+            document.querySelector(".pause").setAttribute("onclick", "play()");
           } else {
-            $(".icons").text("pause");
-            document.querySelector(".icons").setAttribute("onclick", "pause()");
+            $(".pause").text("pause");
+            document.querySelector(".pause").setAttribute("onclick", "pause()");
           }
         } else {
           var rgb = getAverageRGB(document.querySelector(".album"));
