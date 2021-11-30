@@ -307,6 +307,10 @@ a {
   #login-page {
     margin-left: -10vw;
   }
+  
+  .bottom {
+    position:static;
+  }
 
   .ll {
     text-align:center;
@@ -424,6 +428,11 @@ button {
 .dabtn {
   position:fixed;
   top:30;
-  left:95vw;
+  left:430;
   background:var(--darkgreen);
+}
+
+.bottom {
+  position:relative;
+  top:10vw;
 }
