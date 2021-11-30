@@ -63,4 +63,3 @@ if(getParameterByName('error') == "true") {
       document.querySelector('.ajs-ok').setAttribute('class', document.querySelector('.ajs-ok').getAttribute('class') + ' waves-effect waves-dark')
     }, 600)
 }
-

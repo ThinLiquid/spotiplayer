@@ -489,3 +489,11 @@ const pSBC = (p, c0, c1, l) => {
         .slice(1, f ? undefined : -2)
     );
 };
+
+document.addEventListener("fullscreenchange", function() {
+  if (document.fullscreen == true) {
+    document.querySelector(".dabtn").setAttribute("onclick", "document.querySelector('html').exitFullscreen()")
+  } else {
+    document.querySelector(".dabtn").setAttribute("onclick", "document.querySelector('html').requestFullscreen()")
+  }
+})
