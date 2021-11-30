@@ -40,11 +40,14 @@ if (navigator.userAgent.includes('Chrome') == false) {
       error = params.error;
 
   if (error) {
-    alert('There was an error during the authentication');
+    alertify.alert('There was an error during the authentication');
   } else {
     if (access_token) {
-
-      window.location.href='/player?access_token='+access_token
+      try {
+        window.localStorage.setItem("access_token", access_token);
+        window.localStorage.setItem("refresh_token", refresh_token);
+        window.location.href = "/player"
+      } catch(e) { alert(e) }
     } else {
         // render initial screen
         $('#login').show();

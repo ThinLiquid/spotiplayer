@@ -21,7 +21,10 @@ setInterval(function() {
     .then(response => {
       window.wait = response.status;
       if (window.wait == 401) {
-        window.location.href = `/?error=true&status=Access Token expired&code=${window.wait}`;
+        fetch("https://api.spotify.com/v1/swap", { method: "POST", headers: { Authorization: getParameterByName() }, body: { access_token: getParameterByName(), expires_in: 3600, refresh_token: getParamsByName()}})
+          .then(res => { if (res.status == 401) {
+            window.location.href = `/?error=true&status=Access Token expired&code=${window.wait}`;
+          }})
       }
       return response.json();
     })
@@ -244,13 +247,12 @@ MISC
 ------------------------------------------------
 */
 
-function getParameterByName(name, url = window.location.href) {
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
+function getParameterByName() {
+  return window.localStorage.getItem("access_token")
+}
+
+function getParamsByName() {
+  return window.localStorage.getItem("refresh_token")
 }
 
 function millis(millis) {
