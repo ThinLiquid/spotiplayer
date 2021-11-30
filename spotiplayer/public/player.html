@@ -39,25 +39,26 @@
     />
   </head>
   <body>
-    <div class="blur" style="user-select:none;"></div>
     <div class="gradient" style="user-select:none;"></div>
     <span id="lolza">
       <button onclick="fullScreen();" class="material-icons dabtn">
         fullscreen
       </button>
-      <span class="devicename">PLAYING FROM</span><br /><span id="device"
-        >Nowhere</span
-      >&nbsp;<span
-        style="vertical-align: middle;"
-        class="material-icons devicer"
-      ></span
-      ><span style="vertical-align: middle;" id="spotiplayer"></span>
-      <span
-        ><img
-          class="logo"
-          width="50px"
-          src="https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FXmrTgBt.png?v=1638204190713"
-      /></span>
+      <div class="thed">
+        <span class="devicename">PLAYING FROM</span><br /><span id="device"
+          >Nowhere</span
+        >&nbsp;<span
+          style="vertical-align: middle;"
+          class="material-icons devicer"
+        ></span
+        ><span style="vertical-align: middle;" id="spotiplayer"></span>
+        <span
+          ><img
+            class="logo"
+            width="50px"
+            src="https://cdn.glitch.me/362ef2ab-55b7-48f2-a211-2949d088ad46%2FXmrTgBt.png?v=1638204190713"
+        /></span>
+      </div>
       <span style="position: relative;">
         <div style="padding-left:15%;" class="ye">
           <div id="login-page" class="ll">
@@ -130,12 +131,11 @@
   </body>
 </html>
 <script>
-  
   function fullScreen() {
     if (document.fullscreen == false) {
-      document.querySelector("html").requestFullscreen()
+      document.querySelector("html").requestFullscreen();
     } else {
-      document.exitFullscreen()
+      document.exitFullscreen();
     }
   }
 </script>
