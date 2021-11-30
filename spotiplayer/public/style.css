@@ -56,84 +56,6 @@ body {
   z-index: 10 !important;
 }
 
-@keyframes example {
-  0% {
-    box-shadow: 0 0 0px green;
-  }
-  25% {
-    box-shadow: 0 0 0px green;
-  }
-  50% {
-    box-shadow: 0 0 50px green;
-  }
-  100% {
-    box-shadow: 0 0 50px green;
-  }
-}
-
-* inputer input::before {
-  content: "no ";
-  padding-left: 90px !important;
-}
-
-* input:not([type]):focus:not([readonly]) + label,
-input[type="text"]:focus:not([readonly]) + label,
-input[type="password"]:focus:not([readonly]) + label,
-input[type="email"]:focus:not([readonly]) + label,
-input[type="url"]:focus:not([readonly]) + label,
-input[type="time"]:focus:not([readonly]) + label,
-input[type="date"]:focus:not([readonly]) + label,
-input[type="datetime"]:focus:not([readonly]) + label,
-input[type="datetime-local"]:focus:not([readonly]) + label,
-input[type="tel"]:focus:not([readonly]) + label,
-input[type="number"]:focus:not([readonly]) + label,
-input[type="search"]:focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: rgba(0, 0, 0, 0) !important;
-}
-
-* input:not([type]):focus:not([readonly]),
-input[type="text"]:focus:not([readonly]),
-input[type="password"]:focus:not([readonly]),
-input[type="email"]:focus:not([readonly]),
-input[type="url"]:focus:not([readonly]),
-input[type="time"]:focus:not([readonly]),
-input[type="date"]:focus:not([readonly]),
-input[type="datetime"]:focus:not([readonly]),
-input[type="datetime-local"]:focus:not([readonly]),
-input[type="tel"]:focus:not([readonly]),
-input[type="number"]:focus:not([readonly]),
-input[type="search"]:focus:not([readonly]),
-textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0) !important;
-}
-#slide {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-animation: slide 0.5s forwards;
-  -webkit-animation-delay: 2s;
-  animation: slide 0.5s forwards;
-}
-
-* a.material-icons.e:hover {
-  color: var(--darkgreen) !important;
-}
-
-@-webkit-keyframes slide {
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes slide {
-  100% {
-    left: 0;
-  }
-}
-
 img,
 inputer .card {
   border-radius: 10px;
@@ -170,22 +92,18 @@ a:hover {
   cursor: pointer;
 }
 
-@keyframes border {
-  from {
-    border: 3px solid var(--darkgreen);
-  }
-  to {
-    border: 3px solid var(--lightgreen);
-  }
-}
-
 .card {
   transition: all 0.25s ease-in-out;
   background-color: rgba(0, 0, 0, 23%) !important;
 }
 
-.e {
+.control-icon {
   transition: all 0.25s ease-in-out !important;
+  horizontal-align: middle;
+}
+
+.control-icon:hover {
+  color: var(--darkgreen)!important;
 }
 
 @font-face {
@@ -275,11 +193,7 @@ a {
   padding-left: 20px;
 }
 
-.e {
-  horizontal-align: middle;
-}
-
-.vruh {
+center {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -292,26 +206,28 @@ a {
   margin-left: 21vw;
 }
 
- * .inner-container.no-margin {
-    margin-left:0vw!important;
-    text-align:left!important;
-  }
 
 @media only screen and (max-width: 800px) {
+  .device-widget {
+    display:none;
+  }
+  
   .inner-container {
     margin-left: -10vw;
     text-align:center;
   }
   
+  .inner-container.no-margin {
+    margin-right: -10vw!important;
+    text-align:left!important;
+    width:40vw;
+  }
+  
   .bottom {
     position:static;
   }
-  
-  .logo {
-    display: none;
-  }
 
-  .album {
+  .album, .container, .song-name, .no, .progress, .progress-bar {
     width: 40vw;
   }
 
@@ -321,42 +237,19 @@ a {
     padding-left: 0px;
   }
 
-  .device-title,
-  .device-name {
-    display: none;
-  }
-
   .container {
-    width: 40vw;
     margin-left: -30vw;
   }
 
-  .no {
-    width: 40vw !important;
-  }
-
   .song-name {
-    width: 40vw;
     padding-top: 20px;
   }
 
-  .vruh {
+  center {
     margin-left: 0;
     margin-right: 0;
     display: block;
     position: static;
-  }
-  
-  .ed {
-    margin-left: 0;
-    margin-right: 0;
-    display: block;
-    position: static;
-  }
-
-  .progress,
-  .progress-bar {
-    width: 40vw !important;
   }
 }
 
@@ -410,7 +303,7 @@ button {
 }
 
 @media only screen and (min-width: 800px) {
-  .he {
+  .progress-container {
     margin-left:15px;
     margin-top:-10px;
   }
