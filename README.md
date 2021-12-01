@@ -1,7 +1,7 @@
 
 
 # <img src="https://i.imgur.com/XmrTgBt.png" width="25em">&nbsp;&nbsp;SpotiPlayer
-A simple express project, that plays and controls your Spotify. See it in action [here](https://spotiplayer-v2.glitch.me)!
+A simple express project, that plays and controls your Spotify. See it in action [here](https://spotiplayer.glitch.me)!
 
 ![Version][version-shield]
 ![License][license-shield]
