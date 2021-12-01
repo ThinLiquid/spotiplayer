@@ -2,7 +2,7 @@
   "name": "spotiplayer",
   "author": "JuiciiDev",
   "description": "A simple music player for Spotify!",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "license": "Apache",
   "scripts": {
     "start": "node index.js"
